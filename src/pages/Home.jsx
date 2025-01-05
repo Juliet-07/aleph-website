@@ -17,6 +17,12 @@ import Bnr from "../assets/bnr.svg";
 import Brd from "../assets/brd.svg";
 import EventsBG from "../assets/eventsBG.svg";
 import Events from "../assets/events.png";
+import Vision from "../assets/vision.svg";
+import Mission from "../assets/mission.svg";
+import BlogPreview from "../assets/blog-preview.svg";
+import Ernest from "../assets/ernest.svg";
+import Senator from "../assets/senator.svg";
+import Tabs from "../assets/tabs.svg";
 
 const Home = () => {
   const services = [
@@ -81,6 +87,29 @@ const Home = () => {
       text: "Venture Capital & Investment",
     },
   ];
+  const blogs = [
+    {
+      title: "Real Estate in Rwanda",
+      description:
+        "We’re here to help your business reach its full potential. Whether you need innovative strategies, tailored solutions, or a trusted partner to navigate challenges, we’ve got you covered. ",
+      date: "Dec 4, 2024",
+      path: "",
+    },
+    {
+      title: "Real Estate in Rwanda",
+      description:
+        "We’re here to help your business reach its full potential. Whether you need innovative strategies, tailored solutions, or a trusted partner to navigate challenges, we’ve got you covered. ",
+      date: "Dec 4, 2024",
+      path: "",
+    },
+    {
+      title: "Real Estate in Rwanda",
+      description:
+        "We’re here to help your business reach its full potential. Whether you need innovative strategies, tailored solutions, or a trusted partner to navigate challenges, we’ve got you covered. ",
+      date: "Dec 4, 2024",
+      path: "",
+    },
+  ];
   const events = [
     {
       name: "Aleph Biz Business Summit",
@@ -133,7 +162,7 @@ const Home = () => {
           </div>
         </div>
         {/* Mobile Hero Section */}
-        <div className="block md:hidden relative bg-gradient-to-r from-[#34C759]/[60%] to-[#FFC107]/[60%] py-4">
+        <div className="block md:hidden relative bg-[#EEF4D7] py-4">
           <div className="flex flex-col items-center justify-center gap-6 p-4">
             <div className="font-primaryBold text-3xl text-center leading-20 text-[#565656]">
               We Help Businesses <font color="#34C759">Thrive </font>
@@ -224,33 +253,31 @@ const Home = () => {
       </div>
       {/* Results */}
       <div className="w-full flex items-center justify-center my-4">
-        <div className="w-full flex items-center justify-evenly bg-[#FFE784]/[20%] text-white font-bold p-2 font-primaryMedium">
+        <div className="w-full h-[71px] md:h-[191px] flex items-center justify-evenly bg-[#FFE784]/[20%] text-white font-bold p-2 font-primaryMedium">
           <div className="flex flex-col items-center justify-center">
             <p className="text-xl md:text-3xl font-primaryBold text-[#34C759]">
-              100 +
+              400 +
             </p>
             <p className="font-primaryRegular text-[8px] md:text-lg text-[#455A64] px-2 text-center">
-              Provided Capital Funding For Startups
+              Professional have been empowered
             </p>
           </div>
           <div className="px-2 md:px-4 border border-gray-500 rotate-90"></div>
           <div className="flex flex-col items-center justify-center">
             <p className="text-xl md:text-3xl font-primaryBold text-[#34C759]">
-              50 +
+              20 +
             </p>
             <p className="font-primaryRegular text-[8px] md:text-lg text-[#455A64] px-2 text-center">
-              Assisted Startups and SMEs with capital allocation and resource
-              optimization
+              Businesses have been transformed
             </p>
           </div>
           <div className="px-2 md:px-4 border border-gray-500 rotate-90"></div>
           <div className="flex flex-col items-center justify-center">
             <p className="text-xl md:text-3xl font-primaryBold text-[#34C759]">
-              50 +
+              5 +
             </p>
             <p className="font-primaryRegular text-[8px] md:text-lg text-[#455A64] px-2 text-center">
-              Trained individuals and teams in Digital skills to stay ahead in
-              thier industries
+              Startups are currently being financed
             </p>
           </div>
           {/* <div className="px-2 md:px-4 border border-gray-500 rotate-90"></div>
@@ -260,6 +287,53 @@ const Home = () => {
               Award winning
             </p>
           </div> */}
+        </div>
+      </div>
+      {/* Mission & Vision */}
+      <div className="w-full flex flex-col md:flex-row items-center justify-center md:justify-between p-4 md:p-10">
+        <div className="text-center md:text-left">
+          <p className="text-[#34C759] font-primaryMedium md:text-3xl">
+            Our Assignment
+          </p>
+          <div className="font-primaryBold text-2xl md:text-4xl 2xl:text-5xl text-[#565656]">
+            What We Stand For
+          </div>
+        </div>
+        <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-1 my-4 md:my-0">
+          {/* Vision Card */}
+          <div className="flex flex-col items-center text-center bg-white border-2 border-[#FFC107] shadow-lg p-6 md:w-[420px]">
+            <img
+              src={Vision}
+              alt="Vision Icon"
+              className="w-[73px] md:w-[97px] h-[73px] md:h-[97px] mb-4"
+            />
+            <h3 className="text-2xl md:text-3xl font-primaryBold text-[#565656] mb-2">
+              Our Vision
+            </h3>
+            <p className="text-[#455A64] font-primaryRegular md:text-xl">
+              Creating a Pan-African ecosystem where innovation and
+              entrepreneurship drive transformative business success.
+            </p>
+          </div>
+
+          {/* Mission Card */}
+          <div className="grid">
+            <div className="md:flex flex-col items-center text-center bg-gradient-to-r from-green-300 via-green-200 to-yellow-300 shadow-lg p-6 md:w-[420px] h-[78px] hidden"></div>
+            <div className="flex flex-col items-center text-center shadow-lg p-6 border-2 border-[#34C759] md:w-[420px]">
+              <img
+                src={Mission}
+                alt="Mission Icon"
+                className="w-[67px] md:w-[96px] h-[67px] md:h-[96px] mb-4"
+              />
+              <h3 className="text-2xl md:text-3xl font-primaryBold text-[#565656] mb-2">
+                Our Mission
+              </h3>
+              <p className="text-[#455A64] font-primaryRegular md:text-xl">
+                Empowering African businesses to scale and thrive through
+                innovation, technology, and sustainable strategies.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
       {/* What We Offer */}
@@ -381,6 +455,201 @@ const Home = () => {
           </div>
         </div>
       </div>
+      {/* Testimonials */}
+      <div className="w-full flex flex-col md:flex-row items-center justify-between p-4 md:p-10">
+        <div className="flex flex-col items-center justify-center md:items-start md:justify-start">
+          <h2 className="md:text-2xl font-primaryRegular text-[#34C759]">
+            Testimonials
+          </h2>
+          <div className="font-primaryBold text-2xl md:text-5xl text-[#565656] text-center md:text-left">
+            What Our Clients Are
+            <br /> Saying
+          </div>
+        </div>
+        <div className="hidden md:flex flex-col gap-10 overflow-x-auto">
+          <div className="min-w-[553px] min-h-[200px] shadow-xl bg-white border-l-8 border-l-[#FFC107] flex items-center justify-between px-4">
+            <img src={Ernest} className="md:w-[120px] md:h-[120px]" />
+            <div className="grid gap-4">
+              <div>
+                <h3 className="font-primarySemibold text-lg md:text-2xl text-[#1E1E1E]">
+                  Ernest Iweha
+                </h3>
+                <p className="text-sm md:text-lg font-primaryRegular text-[#565656]/[85%]">
+                  Chief Visioner, Krafta Innovation Ltd
+                </p>
+              </div>
+              <p className="font-primaryRegular text-[#1E1E1E]/[80%] w-[227px] md:w-[322px]">
+                Effective financial management requires more than just knowledge
+                and skill. Your track record of experience sets you apart.
+              </p>
+            </div>
+          </div>
+          <div className="min-w-[358px] md:min-w-[553px] min-h-[141px] md:min-h-[200px] shadow-xl bg-white border-l-8 border-l-[#21295C] flex items-center justify-between px-4">
+            <img src={Senator} className="md:w-[120px] md:h-[120px]" />
+            <div className="grid gap-4">
+              <div>
+                <h3 className="font-primarySemibold text-lg md:text-2xl text-[#1E1E1E]">
+                  Senator Ihenyen
+                </h3>
+                <p className="text-sm md:text-lg font-primaryRegular text-[#565656]/[85%]">
+                  Lead Partner, Infusion Lawyers
+                </p>
+              </div>
+              <p className="font-primaryRegular text-[#1E1E1E]/[80%] w-[227px] md:w-[322px]">
+                Aleph Biz Solutions, led by a CEO of great resourcefulness that
+                combines business acumen with character and vision, is a company
+                that adds priceless value across various value
+              </p>
+            </div>
+          </div>
+          <div className="min-w-[358px] md:min-w-[553px] min-h-[141px] md:min-h-[200px] shadow-xl bg-white border-l-8 border-l-[#34C759] flex items-center justify-between px-4">
+            <img src={Tabs} className="md:w-[120px] md:h-[120px]" />
+            <div className="grid gap-4">
+              <div>
+                <h3 className="font-primarySemibold text-lg md:text-2xl text-[#1E1E1E]">
+                  Tabitha Muthoni
+                </h3>
+                <p className="text-sm md:text-lg font-primaryRegular text-[#565656]/[85%]">
+                  Media Consultant and Advisor
+                </p>
+              </div>
+              <p className="font-primaryRegular text-[#1E1E1E]/[80%] w-[227px] md:w-[322px]">
+                Working with Aleph Biz Solutions Ltd has been an exceptional
+                experience. Their dedication to delivering innovative, scalable,
+                and client-focused
+              </p>
+            </div>
+          </div>
+        </div>
+        {/* Mobile View for Testimonial */}
+        <div className="w-full md:hidden flex flex-row gap-4 mt-6 overflow-x-auto">
+          <div className="min-w-[370px] h-full shadow-xl bg-white border-l-8 border-l-[#FFC107] flex items-center justify-between gap-4 p-4">
+            <img src={Ernest} className="md:w-[120px] md:h-[120px]" />
+            <div className="grid gap-4">
+              <div>
+                <h3 className="font-primarySemibold text-lg md:text-2xl text-[#1E1E1E]">
+                  Ernest Iweha
+                </h3>
+                <p className="text-sm md:text-lg font-primaryRegular text-[#565656]/[85%]">
+                  Chief Visioner, Krafta Innovation Ltd
+                </p>
+              </div>
+              <p className="font-primaryRegular text-[#1E1E1E]/[80%]">
+                Effective financial management requires more than just knowledge
+                and skill. Your track record of experience sets you apart.
+              </p>
+            </div>
+          </div>
+          <div className="min-w-[370px] h-full shadow-xl bg-white border-l-8 border-l-[#21295C] flex items-center justify-between gap-4 p-4">
+            <img src={Senator} className="md:w-[120px] md:h-[120px]" />
+            <div className="grid gap-4">
+              <div>
+                <h3 className="font-primarySemibold text-lg md:text-2xl text-[#1E1E1E]">
+                  Senator Ihenyen
+                </h3>
+                <p className="text-sm md:text-lg font-primaryRegular text-[#565656]/[85%]">
+                  Lead Partner, Infusion Lawyers
+                </p>
+              </div>
+              <p className="font-primaryRegular text-[#1E1E1E]/[80%] ">
+                Aleph Biz Solutions, led by a CEO of great resourcefulness that
+                combines business acumen with character and vision, is a company
+                that adds priceless value across various value
+              </p>
+            </div>
+          </div>
+          <div className="min-w-[370px] h-full shadow-xl bg-white border-l-8 border-l-[#34C759] flex items-center justify-between gap-4 p-4">
+            <img src={Tabs} className="md:w-[120px] md:h-[120px]" />
+            <div className="grid gap-4">
+              <div>
+                <h3 className="font-primarySemibold text-lg md:text-2xl text-[#1E1E1E]">
+                  Tabitha Muthoni
+                </h3>
+                <p className="text-sm md:text-lg font-primaryRegular text-[#565656]/[85%]">
+                  Media Consultant and Advisor
+                </p>
+              </div>
+              <p className="font-primaryRegular text-[#1E1E1E]/[80%]">
+                Working with Aleph Biz Solutions Ltd has been an exceptional
+                experience. Their dedication to delivering innovative, scalable,
+                and client-focused
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Blog */}
+      <div className="w-full flex flex-col items-center justify-center">
+        <div className="flex items-center justify-center gap-10 my-4 md:my-10">
+          <div className="flex flex-col items-center justify-center md:items-start md:justify-start">
+            <h2 className="md:text-2xl font-primaryRegular text-[#34C759]">
+              Our Blog
+            </h2>
+            <div className="font-primaryBold text-2xl md:text-5xl text-[#565656]">
+              Latest Articles and Insights
+            </div>
+          </div>
+          <Link
+            to="/blogs"
+            className="hidden w-[245px] h-[77px] border border-[#565656] rounded-full md:flex items-center justify-center text-[#565656] text-lg font-primaryMedium"
+          >
+            View All Articles
+          </Link>
+        </div>
+        {/* Blog Carousel */}
+        <div className="w-full flex items-center gap-10 2xl:gap-20 overflow-x-auto mb-4 p-4">
+          {blogs.map((blog) => (
+            <div
+              // key={blog.id}
+              className="min-w-[250px] md:min-w-[400px] bg-white shadow-lg rounded-lg"
+            >
+              <img
+                src={BlogPreview}
+                alt="Blog Preview"
+                className="w-full h-auto rounded-t-lg"
+              />
+              <div className="grid gap-4 p-4">
+                <div>
+                  <p className="text-sm md:text-lg text-[#34C759] font-primaryRegular">
+                    Insight
+                  </p>
+                  <div className="text-[#455A64] font-primarySemibold md:text-xl">
+                    {blog.title}
+                  </div>
+                </div>
+                <div className="font-primaryRegular text-xs md:text-lg text-[#455A64]">
+                  {blog.description}
+                </div>
+                <div className="flex items-center justify-between">
+                  <p className="text-xs md:text-sm font-primaryRegular text-[#455A64]/[60%]">
+                    {blog.date}
+                  </p>
+                  <div className="relative flex items-center gap-2 md:gap-4 justify-end">
+                    <p className="text-xs md:text-sm text-[#455A64] underline font-primaryRegular">
+                      Read full article
+                    </p>
+                    <span className="absolute right-3 z-10">
+                      <BsArrowRight size={20} color="black" />
+                    </span>
+                    <div
+                      className="relative z-0 w-[25px] h-[25px] bg-[#FFc107] rounded-full group-hover:bg-white animate-pulse"
+                      style={{ animation: "pulse 1s infinite" }}
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <Link
+          to="/blogs"
+          className="md:hidden w-[153px] h-[51px] border border-[#565656] rounded-full flex items-center justify-center text-[#565656] font-primaryMedium mb-4"
+        >
+          View All Articles
+        </Link>
+      </div>
       {/* Events */}
       <div
         className="w-full h-auto relative bg-cover md:px-10 2xl:px-20 md:flex items-center"
@@ -411,7 +680,10 @@ const Home = () => {
               <div className="w-full bg-white rounded-lg p-4">
                 <div className="flex items-center justify-between gap-14 md:gap-10">
                   <div className="flex items-center space-y-4 gap-4">
-                    <img src={Events} className="w-[97px] md:w-[266px] md:h-[206px] h-[95px]" />
+                    <img
+                      src={Events}
+                      className="w-[97px] md:w-[266px] md:h-[206px] h-[95px]"
+                    />
                     <div className="grid">
                       <h2 className="text-xs md:text-3xl font-primarySemibold text-[#455A64]">
                         {event.name}

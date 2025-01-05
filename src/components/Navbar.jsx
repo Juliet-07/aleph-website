@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../assets/aleph-logo.png";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { MdOutlineLocalPhone } from "react-icons/md";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -25,7 +26,7 @@ const Navbar = () => {
     };
   };
   return (
-    <div className="w-full h-20 fixed top-0 left-0 flex items-center justify-between md:justify-center gap-0 md:gap-10 mx-auto p-4 px-6 z-10 text-black border-b-[#A9A5A5] bg-white md:rounded-full">
+    <div className="w-full h-20 fixed top-0 left-0 flex items-center justify-between md:justify-center gap-0 md:gap-10 mx-auto p-4 px-6 z-10 text-black border-b-[#A9A5A5] bg-[#EEF4D7] md:bg-white md:rounded-full shadow-lg">
       <Link to="/">
         <img
           src={Logo}
@@ -66,7 +67,7 @@ const Navbar = () => {
       {/* Mobile hamburger */}
       <div onClick={handleNav} className="block md:hidden">
         {nav ? (
-          <AiOutlineClose size={30} color="black" />
+          <AiOutlineClose size={30} color="red" />
         ) : (
           <AiOutlineMenu size={30} color="black" />
         )}
@@ -75,8 +76,8 @@ const Navbar = () => {
       <div
         className={
           nav
-            ? "fixed left-0 top-20 w-[414px] h-[532px] ease-in-out duration-500 bg-white z-20"
-            : "fixed left-[-100%]"
+            ? "fixed right-0 top-20 w-[251px] h-[449px] ease-in-out duration-500 bg-[#EEF4D7] z-20"
+            : "fixed right-[-100%]"
         }
       >
         <div className="grid grid-cols-1 gap-4 px-4 font-primarySemibold">
@@ -121,14 +122,19 @@ const Navbar = () => {
           >
             Events
           </NavLink>
+          <div className="border-b border-[#565656] w-full"></div>
           <NavLink
             to="/contact-us"
             style={activeStyleMobile}
-            className="p-2"
+            className="p-2 font-primaryBold text-[#455A64] text-xl"
             onClick={() => setNav(false)}
           >
-            Contact us
+            Contact
           </NavLink>
+          <div className="flex items-center font-primaryMedium">
+            <MdOutlineLocalPhone size={20} />
+            <span>+250 795 047 509</span>
+          </div>
         </div>
       </div>
     </div>
