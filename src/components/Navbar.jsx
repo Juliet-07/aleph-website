@@ -26,7 +26,7 @@ const Navbar = () => {
     };
   };
   return (
-    <div className="w-full h-20 fixed top-0 left-0 flex items-center justify-between md:justify-center gap-0 md:gap-10 mx-auto p-4 px-6 z-10 text-black border-b-[#A9A5A5] bg-[#EEF4D7] md:bg-white md:rounded-full shadow-lg">
+    <div className="w-full h-20 fixed top-0 left-0 flex items-center justify-between md:justify-center gap-0 md:gap-10 mx-auto p-4 px-6 z-20 text-black border-b-[#A9A5A5] bg-[#EEF4D7] md:bg-white shadow-lg">
       <Link to="/">
         <img
           src={Logo}

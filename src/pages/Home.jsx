@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import HeroBG from "../assets/hero-bg.png";
 import WaterMark from "../assets/water-mark.png";
-import WhoWeAre1 from "../assets/whoWeAre1.png";
-import WhoWeAre2 from "../assets/whoWeAre2.png";
+import WhoWeAre1 from "../assets/whoWeAre1.svg";
+import WhoWeAre2 from "../assets/whoWeAre2.svg";
 import { BsArrowRight } from "react-icons/bs";
 import Business from "../assets/business.svg";
 import Finance from "../assets/finance.png";
@@ -87,6 +87,29 @@ const Home = () => {
       text: "Venture Capital & Investment",
     },
   ];
+  const testimonials = [
+    {
+      name: "Ernest Iweha",
+      title: "Chief Visioner, Krafta Innovation Ltd",
+      image: Ernest, // Assuming `Ernest` is imported or defined elsewhere
+      feedback:
+        "Effective financial management requires more than just knowledge and skill. Your track record of experience sets you apart.",
+    },
+    {
+      name: "Senator Ihenyen",
+      title: "Lead Partner, Infusion Lawyers",
+      image: Senator, // Assuming `Senator` is imported or defined elsewhere
+      feedback:
+        "Aleph Biz Solutions, led by a CEO of great resourcefulness that combines business acumen with character and vision, is a company that adds priceless value across various value chains.",
+    },
+    {
+      name: "Tabitha Muthoni",
+      title: "Media Consultant and Advisor",
+      image: Tabs, // Assuming `Tabs` is imported or defined elsewhere
+      feedback:
+        "Working with Aleph Biz Solutions Ltd has been an exceptional experience. Their dedication to delivering innovative, scalable, and client-focused solutions is truly commendable.",
+    },
+  ];
   const blogs = [
     {
       title: "Real Estate in Rwanda",
@@ -126,6 +149,9 @@ const Home = () => {
       detailsPath: "",
     },
   ];
+
+  const borderColors = ["#FFC107", "#21295C", "#34C759"];
+
   return (
     <>
       {/* Hero Section */}
@@ -370,7 +396,7 @@ const Home = () => {
               </Link>
             </div>
           </div>
-          <div className="flex-1 grid grid-cols-2 2xl:grid-cols-3 2xl:gap-4 gap-10">
+          <div className="flex-1 grid grid-cols-2 2xl:grid-cols-3 gap-10">
             {services.map((service, index) => (
               <div
                 key={index}
@@ -414,7 +440,7 @@ const Home = () => {
         </div>
         <div className="bg-gradient-to-r from-[#34C759]/[20%] to-[#F7DC6F]/[20%] p-4">
           <div className="w-full bg-white rounded-t-lg flex items-center p-4">
-            <div className="flex-1 grid grid-cols-2 gap-2">
+            <div className="flex-1 grid grid-cols-2 gap-4">
               {services.map((service, index) => (
                 <div
                   key={index}
@@ -466,116 +492,37 @@ const Home = () => {
             <br /> Saying
           </div>
         </div>
-        <div className="hidden md:flex flex-col gap-10 overflow-x-auto">
-          <div className="min-w-[553px] min-h-[200px] shadow-xl bg-white border-l-8 border-l-[#FFC107] flex items-center justify-between px-4">
-            <img src={Ernest} className="md:w-[120px] md:h-[120px]" />
-            <div className="grid gap-4">
-              <div>
-                <h3 className="font-primarySemibold text-lg md:text-2xl text-[#1E1E1E]">
-                  Ernest Iweha
-                </h3>
-                <p className="text-sm md:text-lg font-primaryRegular text-[#565656]/[85%]">
-                  Chief Visioner, Krafta Innovation Ltd
+        <div className="w-full md:w-auto flex flex-row md:flex-col gap-10 overflow-x-auto">
+          {testimonials.map((testimonial, index) => (
+            <div
+              key={index}
+              className={`min-w-[400px] md:min-w-[553px] min-h-[200px] shadow-xl bg-white flex items-center justify-between px-4`}
+              style={{
+                borderLeft: `8px solid ${
+                  borderColors[index % borderColors.length]
+                }`,
+              }}
+            >
+              <img
+                src={testimonial.image}
+                alt={testimonial.name}
+                className="md:w-[120px] md:h-[120px]"
+              />
+              <div className="grid gap-4">
+                <div>
+                  <h3 className="font-primarySemibold text-lg md:text-2xl text-[#1E1E1E]">
+                    {testimonial.name}
+                  </h3>
+                  <p className="text-sm md:text-lg font-primaryRegular text-[#565656]/[85%]">
+                    {testimonial.title}
+                  </p>
+                </div>
+                <p className="font-primaryRegular text-[#1E1E1E]/[80%] w-[227px] md:w-[322px]">
+                  {testimonial.feedback}
                 </p>
               </div>
-              <p className="font-primaryRegular text-[#1E1E1E]/[80%] w-[227px] md:w-[322px]">
-                Effective financial management requires more than just knowledge
-                and skill. Your track record of experience sets you apart.
-              </p>
             </div>
-          </div>
-          <div className="min-w-[358px] md:min-w-[553px] min-h-[141px] md:min-h-[200px] shadow-xl bg-white border-l-8 border-l-[#21295C] flex items-center justify-between px-4">
-            <img src={Senator} className="md:w-[120px] md:h-[120px]" />
-            <div className="grid gap-4">
-              <div>
-                <h3 className="font-primarySemibold text-lg md:text-2xl text-[#1E1E1E]">
-                  Senator Ihenyen
-                </h3>
-                <p className="text-sm md:text-lg font-primaryRegular text-[#565656]/[85%]">
-                  Lead Partner, Infusion Lawyers
-                </p>
-              </div>
-              <p className="font-primaryRegular text-[#1E1E1E]/[80%] w-[227px] md:w-[322px]">
-                Aleph Biz Solutions, led by a CEO of great resourcefulness that
-                combines business acumen with character and vision, is a company
-                that adds priceless value across various value
-              </p>
-            </div>
-          </div>
-          <div className="min-w-[358px] md:min-w-[553px] min-h-[141px] md:min-h-[200px] shadow-xl bg-white border-l-8 border-l-[#34C759] flex items-center justify-between px-4">
-            <img src={Tabs} className="md:w-[120px] md:h-[120px]" />
-            <div className="grid gap-4">
-              <div>
-                <h3 className="font-primarySemibold text-lg md:text-2xl text-[#1E1E1E]">
-                  Tabitha Muthoni
-                </h3>
-                <p className="text-sm md:text-lg font-primaryRegular text-[#565656]/[85%]">
-                  Media Consultant and Advisor
-                </p>
-              </div>
-              <p className="font-primaryRegular text-[#1E1E1E]/[80%] w-[227px] md:w-[322px]">
-                Working with Aleph Biz Solutions Ltd has been an exceptional
-                experience. Their dedication to delivering innovative, scalable,
-                and client-focused
-              </p>
-            </div>
-          </div>
-        </div>
-        {/* Mobile View for Testimonial */}
-        <div className="w-full md:hidden flex flex-row gap-4 mt-6 overflow-x-auto">
-          <div className="min-w-[370px] h-full shadow-xl bg-white border-l-8 border-l-[#FFC107] flex items-center justify-between gap-4 p-4">
-            <img src={Ernest} className="md:w-[120px] md:h-[120px]" />
-            <div className="grid gap-4">
-              <div>
-                <h3 className="font-primarySemibold text-lg md:text-2xl text-[#1E1E1E]">
-                  Ernest Iweha
-                </h3>
-                <p className="text-sm md:text-lg font-primaryRegular text-[#565656]/[85%]">
-                  Chief Visioner, Krafta Innovation Ltd
-                </p>
-              </div>
-              <p className="font-primaryRegular text-[#1E1E1E]/[80%]">
-                Effective financial management requires more than just knowledge
-                and skill. Your track record of experience sets you apart.
-              </p>
-            </div>
-          </div>
-          <div className="min-w-[370px] h-full shadow-xl bg-white border-l-8 border-l-[#21295C] flex items-center justify-between gap-4 p-4">
-            <img src={Senator} className="md:w-[120px] md:h-[120px]" />
-            <div className="grid gap-4">
-              <div>
-                <h3 className="font-primarySemibold text-lg md:text-2xl text-[#1E1E1E]">
-                  Senator Ihenyen
-                </h3>
-                <p className="text-sm md:text-lg font-primaryRegular text-[#565656]/[85%]">
-                  Lead Partner, Infusion Lawyers
-                </p>
-              </div>
-              <p className="font-primaryRegular text-[#1E1E1E]/[80%] ">
-                Aleph Biz Solutions, led by a CEO of great resourcefulness that
-                combines business acumen with character and vision, is a company
-                that adds priceless value across various value
-              </p>
-            </div>
-          </div>
-          <div className="min-w-[370px] h-full shadow-xl bg-white border-l-8 border-l-[#34C759] flex items-center justify-between gap-4 p-4">
-            <img src={Tabs} className="md:w-[120px] md:h-[120px]" />
-            <div className="grid gap-4">
-              <div>
-                <h3 className="font-primarySemibold text-lg md:text-2xl text-[#1E1E1E]">
-                  Tabitha Muthoni
-                </h3>
-                <p className="text-sm md:text-lg font-primaryRegular text-[#565656]/[85%]">
-                  Media Consultant and Advisor
-                </p>
-              </div>
-              <p className="font-primaryRegular text-[#1E1E1E]/[80%]">
-                Working with Aleph Biz Solutions Ltd has been an exceptional
-                experience. Their dedication to delivering innovative, scalable,
-                and client-focused
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
 

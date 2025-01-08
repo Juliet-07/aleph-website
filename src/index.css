@@ -39,3 +39,20 @@
   src: local("Montserrat-SemiBold"),
     url("./fonts/Montserrat-SemiBold.ttf") format("truetype");
 }
+
+.text-outline {
+  position: relative;
+  color: white;
+}
+.text-outline::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  color: black; /* Border color */
+  -webkit-background-clip: text;
+  background-clip: text;
+  transform: translate(2px, 2px); /* Adjust the distance for the border */
+  font-weight: bold;
+}
