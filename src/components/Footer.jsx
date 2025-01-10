@@ -81,10 +81,7 @@ const Footer = () => {
           <div className="grid gap-4 text-white font-primaryRegular">
             <div className="font-primarySemibold text-2xl">Contact</div>
             <div className="flex items-center gap-2">
-              <a
-                href="https://www.linkedin.com/company/spc-universe/"
-                target="_blank"
-              >
+              <a href="#">
                 <IoLocationSharp size={20} color="white" />
               </a>
               <span className="text-white font-primaryRegular text-xl">
@@ -92,10 +89,7 @@ const Footer = () => {
               </span>
             </div>
             <div className="flex items-center gap-2">
-              <a
-                href="https://www.linkedin.com/company/spc-universe/"
-                target="_blank"
-              >
+              <a href="#">
                 <FaPhone size={20} color="white" />
               </a>
               <span className="text-white font-primaryRegular text-xl">
@@ -104,7 +98,7 @@ const Footer = () => {
             </div>
             <div className="flex items-center gap-2">
               <a
-                href="https://www.linkedin.com/company/spc-universe/"
+                href="https://www.linkedin.com/company/aleph-biz-solutions-ltd/"
                 target="_blank"
               >
                 <FaLinkedin size={20} color="white" />
@@ -178,7 +172,7 @@ const Footer = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <a
-              href="https://www.linkedin.com/company/spc-universe/"
+              href="https://www.linkedin.com/company/aleph-biz-solutions-ltd/"
               target="_blank"
             >
               <FaLinkedin size={20} color="white" />
