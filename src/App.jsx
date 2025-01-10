@@ -7,6 +7,7 @@ import Events from "./pages/Events";
 import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact-us";
 import BusinessConsulting from "./pages/Services/business-consulting";
+import BusinessScaling from "./pages/Services/business-scaling";
 
 const GeneralRoute = () => {
   return (
@@ -20,6 +21,7 @@ const GeneralRoute = () => {
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/business-consulting" element={<BusinessConsulting />} />
+          <Route path="/services/business-scaling" element={<BusinessScaling />} />
         </Routes>
       </Layout>
     </>

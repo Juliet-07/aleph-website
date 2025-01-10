@@ -1,8 +1,10 @@
 import React from "react";
 import Logo from "../assets/white-logo.svg";
 import { FaLinkedin, FaFacebook } from "react-icons/fa";
+import { FaPhone } from "react-icons/fa6";
 import { FaRegCopyright, FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { IoLocationSharp } from "react-icons/io5";
 
 const Footer = () => {
   return (
@@ -46,36 +48,71 @@ const Footer = () => {
               <img src={Logo} alt="SPC Logo" />
             </div>
             <div className="mt-4 text-white font-primaryRegular">
-              Thrive Today, Scale Tomorrow
+              Catalysing Rwanda's <br />
+              Economic Transformation
             </div>
           </div>
           {/* b */}
           <div className="grid gap-4 text-white font-primaryRegular">
-            <div className="font-primarySemibold">Quick Links</div>
-            <Link>About Us</Link>
-            <Link>Partners</Link>
-            <Link>Blogs</Link>
+            <div className="font-primarySemibold text-2xl">Quick Links</div>
+            <Link to="/about-us" className="text-lg">
+              About Us
+            </Link>
+            <Link className="text-lg">Partners</Link>
+            <Link to="/blogs" className="text-lg">
+              Blogs
+            </Link>
           </div>
           {/* c */}
           <div className="grid gap-4 text-white font-primaryRegular">
-            <div className="font-primarySemibold">Events</div>
-            <Link>About Us</Link>
-            <Link>Partners</Link>
-            <Link>Blogs</Link>
+            <div className="font-primarySemibold text-2xl">Events</div>
+            <Link className="text-lg">Aleph Business Summit</Link>
+            <Link className="text-lg">Aleph Business Trainings</Link>
+            <Link className="text-lg">Aleph Business Summit</Link>
           </div>
           {/* d */}
           <div className="grid gap-4 text-white font-primaryRegular">
-            <div className="font-primarySemibold">Services</div>
-            <Link>About Us</Link>
-            <Link>Partners</Link>
-            <Link>Blogs</Link>
+            <div className="font-primarySemibold text-2xl">Services</div>
+            <Link className="text-lg">Business Consulting</Link>
+            <Link className="text-lg">Financial Management</Link>
+            <Link className="text-lg">Real Estate</Link>
           </div>
           {/* e */}
           <div className="grid gap-4 text-white font-primaryRegular">
-            <div className="font-primarySemibold">Contact</div>
-            <Link>About Us</Link>
-            <Link>Partners</Link>
-            <Link>Blogs</Link>
+            <div className="font-primarySemibold text-2xl">Contact</div>
+            <div className="flex items-center gap-2">
+              <a
+                href="https://www.linkedin.com/company/spc-universe/"
+                target="_blank"
+              >
+                <IoLocationSharp size={20} color="white" />
+              </a>
+              <span className="text-white font-primaryRegular text-xl">
+                KN 78st, Kigali, RW
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <a
+                href="https://www.linkedin.com/company/spc-universe/"
+                target="_blank"
+              >
+                <FaPhone size={20} color="white" />
+              </a>
+              <span className="text-white font-primaryRegular text-xl">
+                +250798287905
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <a
+                href="https://www.linkedin.com/company/spc-universe/"
+                target="_blank"
+              >
+                <FaLinkedin size={20} color="white" />
+              </a>
+              <span className="text-white font-primaryRegular text-xl">
+                Aleph Biz Solutions Ltd
+              </span>
+            </div>
           </div>
         </div>
         {/* 3 */}

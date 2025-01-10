@@ -20,13 +20,6 @@ const HeroSection = ({
         <div>
           <img src={Thrive} />
         </div>
-        {/* <h1 className="relative text-[146px] font-extrabold uppercase tracking-wide  text-outline">
-          {mainHeading}
-        </h1> */}
-        {/* Sub Text */}
-        {/* <h2 className="absolute top-0 text-6xl font-bold text-white">
-          {subHeading}
-        </h2> */}
         <h2 className={`absolute top-0 ${textSize} font-primaryBold`}>
           {subHeading.map(({ text, color }, index) => (
             <span

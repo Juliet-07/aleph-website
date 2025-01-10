@@ -4,19 +4,19 @@ import BG from "../../assets/bgThrive.svg";
 import BGMobile from "../../assets/bgThriveMobile.svg";
 import WaterMark from "../../assets/water-mark.svg";
 
-const BusinessConsulting = () => {
+const BusinessScaling = () => {
   const heroContent = [
     {
       id: 1,
-      text: "Strategic planning to align business goals with market opportunities.",
+      text: "Market expansion strategies tailored for startups and SMEs.",
     },
     {
       id: 2,
-      text: "Operational improvement strategies for better productivity and profitability.",
+      text: "Enhancing operational efficiency for businesses to thrive in competitive markets.",
     },
     {
       id: 3,
-      text: "Market entry and competitive analysis for African and global markets.",
+      text: "Branding and marketing solutions for a strong market presence.",
     },
   ];
 
@@ -25,9 +25,9 @@ const BusinessConsulting = () => {
       {/* Hero Section */}
       <div className="w-full flex flex-col md:flex-row items-center justify-around bg-gradient-to-b from-[#038B25]/[100%] to-[#34C759]/[100%] p-4 md:p-10 gap-10">
         <div className="grid gap-4">
-          <h1 className="text-white font-primaryBold text-2xl md:text-5xl md:leading-[90px] text-center md:text-left">
-            Business <br />
-            Consulting
+          <h1 className="text-white font-primaryBold text-2xl md:text-4xl 2xl:text-5xl md:leading-[60px] 2xl:leading-[70px] text-center md:text-left">
+            Business Scaling <br />
+            Services
           </h1>
           <button className="w-[189px] md:w-[253px] h-[52px] md:h-[69px] bg-[#FFC107] hover:bg-yellow-500 text-black font-primarySemibold rounded-[35px] transition-all duration-300">
             Get Started With Us
@@ -53,17 +53,17 @@ const BusinessConsulting = () => {
       {/* Explanation */}
       <div className="w-full flex flex-col md:flex-row items-center justify-center md:justify-between bg-white p-4 md:p-10">
         <div className="flex flex-col gap-4">
-          <div className="text-2xl md:text-5xl font-primaryBold text-[#565656] text-center md:text-left leading-10 md:leading-[60px]">
-            Expert Guidance to <font color="#34C759">Thrive </font> <br />
-            <font color="#34C759">Today </font> and{" "}
-            <font color="#34C759">Scale Tomorrow</font>
+          <div className="text-2xl md:text-4xl 2xl:text-5xl font-primaryBold text-[#565656] text-center md:text-left leading-10 md:leading-[60px] 2xl:leading-[70px]">
+            Empowering Your Business To <br />
+            <font color="#34C759">Thrive Today </font>
+            and <font color="#34C759">Scale Tomorrow</font>
           </div>
-          <p className="md:w-[654px] text-[#455A64] md:text-xl font-primaryMedium text-center md:text-left leading-8 md:leading-10">
-            The challenges of running and growing a business often require fresh
-            perspectives and expert advice. At Aleph Biz Solutions Ltd, our
-            business consulting services provide startups and SMEs with
-            actionable strategies to overcome obstacles, unlock opportunities,
-            and position themselves for long-term success.
+          <p className="md:w-[654px] text-[#455A64] md:text-xl font-primaryMedium text-justify leading-8 md:leading-10">
+            Scaling a business is no small feat—it requires strategy, resources,
+            and expertise. At Aleph Biz Solutions Ltd, we provide a
+            comprehensive suite of services designed to help startups and SMEs
+            navigate the complexities of growth and position themselves for
+            long-term success.
           </p>
         </div>
         <div>
@@ -76,52 +76,52 @@ const BusinessConsulting = () => {
         <div className="text-center text-2xl md:text-5xl leading-10 md:leading-[60px] font-primaryBold text-[#455A64]">
           How We Help Your Business
           <br />
-          <font color="#34C759">Thrive and Scale</font>
+          <font color="#34C759"> Scale</font>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-stretch gap-10">
           {/* 1 */}
-          <div className="bg-white rounded-[22px] p-6 max-w-sm border border-[#34C759]/[100%] hover:border-[#34C759] transition duration-300">
-            <div className="flex justify-center items-center bg-[#34C759]/[10%] text-[#038B25] font-primaryBold text-2xl md:text-5xl w-[73px] md:w-[107px] h-[73px] md:h-[107px] rounded-full mx-auto mb-6">
+          <div className="bg-white rounded-[22px] p-4 max-w-sm border border-[#34C759]/[100%] hover:border-[#34C759] transition duration-300">
+            <div className="flex justify-center items-center bg-[#34C759]/[10%] text-[#038B25] font-primaryBold text-2xl md:text-4xl w-[73px] md:w-[107px] h-[73px] md:h-[107px] rounded-full mx-auto mb-6">
               1
             </div>
-            <h3 className="text-lg md:text-2xl font-primaryBold text-[#455A64] mb-4 text-center">
-              Strategic Planning
+            <h3 className="text-lg md:text-xl font-primaryBold text-[#455A64] mb-4 text-center">
+              Market Expansion Strategies
             </h3>
             <p className="text-[#455A64] text-justify text-sm md:text-xl font-primaryMedium leading-10 md:leading-10">
-              We collaborate with you to create a roadmap that aligns your
-              business goals with market opportunities. Our strategic planning
-              process identifies growth areas, optimizes resource allocation,
-              and ensures your business remains adaptable in changing markets.
+              We analyse your business’s potential and identify untapped market
+              opportunities. Whether expanding to new regions or exploring niche
+              markets, our data-driven strategies ensure you enter with
+              confidence and purpose.
             </p>
           </div>
           {/* 2 */}
-          <div className="bg-white rounded-[22px] p-6 max-w-sm border border-[#FFC107]/[100%] hover:border-[#FFC107] transition duration-300 md:mt-[100px]">
+          <div className="bg-white rounded-[22px] p-4 max-w-sm border border-[#FFC107]/[100%] hover:border-[#FFC107] transition duration-300 md:mt-[100px]">
             <div className="flex justify-center items-center bg-[#FFC107]/[10%] text-[#FFC107] font-primaryBold text-2xl md:text-5xl w-[73px] md:w-[107px] h-[73px] md:h-[107px] rounded-full mx-auto mb-6">
               2
             </div>
-            <h3 className="text-lg md:text-2xl font-primaryBold text-[#455A64] mb-4 text-center">
-              Operational Improvement
+            <h3 className="text-lg md:text-xl font-primaryBold text-[#455A64] mb-4 text-center">
+              Operational Efficiency Enhancement
             </h3>
-            <p className="text-[#455A64] text-justify text-sm md:text-xl font-primaryMedium leading-10 md:leading-10">
-              From process analysis to workflow redesign, we identify
-              inefficiencies and implement tailored solutions to enhance
-              productivity and profitability. We aim to help your business
-              operate at peak efficiency while minimizing costs.
+            <p className="text-[#455A64] text-justify text-sm md:text-xl md:text-left font-primaryMedium leading-10 md:leading-10">
+              Scaling isn’t just about growing bigger; it’s about growing
+              smarter. We streamline your operations, implement cost-saving
+              measures, and optimize processes to ensure maximum productivity at
+              every stage of growth.
             </p>
           </div>
           {/* 3 */}
-          <div className="bg-white rounded-[22px] p-6 max-w-sm border border-[#21295C]/[100%] hover:border-[#21295C] transition duration-300">
+          <div className="bg-white rounded-[22px] p-4 max-w-sm border border-[#21295C]/[100%] hover:border-[#21295C] transition duration-300">
             <div className="flex justify-center items-center bg-[#21295C]/[10%] text-[#21295C] font-primaryBold text-2xl md:text-5xl w-[73px] md:w-[107px] h-[73px] md:h-[107px] rounded-full mx-auto mb-6">
               3
             </div>
             <h3 className="text-lg md:text-2xl font-primaryBold text-[#455A64] mb-4 text-center">
-              Market Entry and Competitive Analysis
+              Branding and Marketing Solutions
             </h3>
-            <p className="text-[#455A64] text-justify text-sm md:text-xl font-primaryMedium leading-10 md:leading-10">
-              Entering new markets can be daunting. We provide a thorough
-              analysis of market dynamics, customer behavior, and competitive
-              landscapes, enabling you to navigate both African and global
-              markets with confidence.
+            <p className="text-[#455A64] text-justify text-sm md:text-xl md:text-left font-primaryMedium leading-10 md:leading-10">
+              Your brand is your business’s identity. We craft compelling
+              branding strategies and execute high-impact marketing campaigns to
+              enhance visibility, attract customers, and strengthen your market
+              presence.
             </p>
           </div>
         </div>
@@ -138,8 +138,8 @@ const BusinessConsulting = () => {
                 Thrive Today
               </h3>
               <p className="font-primaryRegular md:text-xl">
-                 Streamline operations and address immediate challenges with
-                expert insights.
+                Overcome inefficiencies and establish a strong foundation with
+                streamlined operations.
               </p>
             </div>
             <div className="bg-[#34C759]/[15%] w-[360px] md:w-[430px] rounded-[24px] p-4 md:p-8 text-[#455A64]">
@@ -147,18 +147,18 @@ const BusinessConsulting = () => {
                 Scale Tomorrow
               </h3>
               <p className="font-primaryRegular md:text-xl">
-                 Build a foundation for sustainable growth and successfully
-                expand into new markets.
+                Confidently Enter new markets and build a brand that resonates
+                with a global audience.
               </p>
             </div>
           </div>
           <div className="bg-[#FFC107]/[50%] w-[360px] md:w-[430px] rounded-[24px] p-4 md:p-8 text-[#455A64]">
             <h3 className="font-primaryBold text-xl md:text-3xl my-4">
-              Competitive Edge
+              Sustainable Growth
             </h3>
             <p className="font-primaryRegular md:text-xl">
-              Stay ahead of competitors with strategies that capitalise on
-              emerging trends.
+              Achieve measurable, scalable results with strategies tailored
+              specifically to your business.
             </p>
           </div>
         </div>
@@ -171,12 +171,11 @@ const BusinessConsulting = () => {
           <div className="w-auto flex items-center justify-between gap-6 md:gap-[100px]">
             <div className="grid gap-4">
               <h2 className="text-white font-primaryBold text-lg md:text-4xl">
-                Take The First Step
+                Take Action Now
               </h2>
               <p className="md:w-[628px] text-white text-xs md:text-2xl font-primaryMedium">
-                Unlock your business’s full potential with tailored consulting
-                solutions. Book an appointment today to thrive today and scale
-                tomorrow
+                Let’s create a strategy that propels your business forward. Book
+                an appointment today
               </p>
               <button className="w-[162px] md:w-[275px] h-10 md:h-[69px] rounded-xl md:rounded-[35px] bg-[#FFC107] font-primarySemibold text-xs md:text-base">
                 Book An Appointment
@@ -193,4 +192,4 @@ const BusinessConsulting = () => {
   );
 };
 
-export default BusinessConsulting;
+export default BusinessScaling;

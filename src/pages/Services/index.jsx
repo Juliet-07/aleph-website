@@ -129,6 +129,7 @@ const Services = () => {
         />
       ),
       text: "Business Scaling Services",
+      path:"/services/business-scaling"
     },
   ];
   return (
