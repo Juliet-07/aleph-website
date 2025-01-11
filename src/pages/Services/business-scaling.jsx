@@ -3,6 +3,7 @@ import WhoWeAre1 from "../../assets/services-holder.svg";
 import BG from "../../assets/bgThrive.svg";
 import BGMobile from "../../assets/bgThriveMobile.svg";
 import WaterMark from "../../assets/water-mark.svg";
+import { motion } from "framer-motion";
 
 const BusinessScaling = () => {
   const heroContent = [
@@ -52,7 +53,12 @@ const BusinessScaling = () => {
       </div>
       {/* Explanation */}
       <div className="w-full flex flex-col md:flex-row items-center justify-center md:justify-between bg-white p-4 md:p-10">
-        <div className="flex flex-col gap-4">
+        <motion.div
+          initial={{ opacity: 0, x: -200 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="flex flex-col gap-4"
+        >
           <div className="text-2xl md:text-4xl 2xl:text-5xl font-primaryBold text-[#565656] text-center md:text-left leading-10 md:leading-[60px] 2xl:leading-[70px]">
             Empowering Your Business To <br />
             <font color="#34C759">Thrive Today </font>
@@ -65,22 +71,31 @@ const BusinessScaling = () => {
             navigate the complexities of growth and position themselves for
             long-term success.
           </p>
-        </div>
-        <div>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: 200 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+        >
           {" "}
           <img src={WhoWeAre1} alt="aleph-biz" />
-        </div>
+        </motion.div>
       </div>
       {/* How We Support */}
       <div className="w-full flex flex-col items-center justify-center gap-10 bg-gradient-to-r from-[#34C759]/[20%] to-[#F7DC6F]/[20%] my-5 p-4 md:p-10">
-        <div className="text-center text-2xl md:text-5xl leading-10 md:leading-[60px] font-primaryBold text-[#455A64]">
+        <div className="text-center text-2xl md:text-4xl 2xl:text-5xl leading-10 md:leading-[60px] font-primaryBold text-[#455A64]">
           How We Help Your Business
           <br />
           <font color="#34C759"> Scale</font>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-stretch gap-10">
           {/* 1 */}
-          <div className="bg-white rounded-[22px] p-4 max-w-sm border border-[#34C759]/[100%] hover:border-[#34C759] transition duration-300">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="bg-white rounded-[22px] p-4 max-w-sm border border-[#34C759]/[100%] hover:border-[#34C759] transition duration-300"
+          >
             <div className="flex justify-center items-center bg-[#34C759]/[10%] text-[#038B25] font-primaryBold text-2xl md:text-4xl w-[73px] md:w-[107px] h-[73px] md:h-[107px] rounded-full mx-auto mb-6">
               1
             </div>
@@ -93,9 +108,14 @@ const BusinessScaling = () => {
               markets, our data-driven strategies ensure you enter with
               confidence and purpose.
             </p>
-          </div>
+          </motion.div>
           {/* 2 */}
-          <div className="bg-white rounded-[22px] p-4 max-w-sm border border-[#FFC107]/[100%] hover:border-[#FFC107] transition duration-300 md:mt-[100px]">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="bg-white rounded-[22px] p-4 max-w-sm border border-[#FFC107]/[100%] hover:border-[#FFC107] transition duration-300"
+          >
             <div className="flex justify-center items-center bg-[#FFC107]/[10%] text-[#FFC107] font-primaryBold text-2xl md:text-5xl w-[73px] md:w-[107px] h-[73px] md:h-[107px] rounded-full mx-auto mb-6">
               2
             </div>
@@ -108,9 +128,14 @@ const BusinessScaling = () => {
               measures, and optimize processes to ensure maximum productivity at
               every stage of growth.
             </p>
-          </div>
+          </motion.div>
           {/* 3 */}
-          <div className="bg-white rounded-[22px] p-4 max-w-sm border border-[#21295C]/[100%] hover:border-[#21295C] transition duration-300">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="bg-white rounded-[22px] p-4 max-w-sm border border-[#21295C]/[100%] hover:border-[#21295C] transition duration-300"
+          >
             <div className="flex justify-center items-center bg-[#21295C]/[10%] text-[#21295C] font-primaryBold text-2xl md:text-5xl w-[73px] md:w-[107px] h-[73px] md:h-[107px] rounded-full mx-auto mb-6">
               3
             </div>
@@ -123,18 +148,18 @@ const BusinessScaling = () => {
               enhance visibility, attract customers, and strengthen your market
               presence.
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
       {/* Why You Need it */}
       <div className="w-full flex flex-col items-center justify-center gap-10 bg-white p-4 md:p-10">
-        <div className="text-center text-2xl md:text-5xl leading-10 font-primaryBold text-[#455A64]">
+        <div className="text-center text-2xl md:text-4xl 2xl:text-5xl leading-10 font-primaryBold text-[#455A64]">
           Why Your Business Needs This Service
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center gap-3 md:gap-6">
           <div className="grid gap-3">
             <div className="bg-[#34C759]/[15%] w-[360px] md:w-[430px] rounded-[24px] p-4 md:p-8 text-[#455A64]">
-              <h3 className="font-primaryBold text-xl md:text-3xl my-4">
+              <h3 className="font-primaryBold text-xl  md:text-2xl 2xl:text-3xl my-4">
                 Thrive Today
               </h3>
               <p className="font-primaryRegular md:text-xl">
@@ -143,7 +168,7 @@ const BusinessScaling = () => {
               </p>
             </div>
             <div className="bg-[#34C759]/[15%] w-[360px] md:w-[430px] rounded-[24px] p-4 md:p-8 text-[#455A64]">
-              <h3 className="font-primaryBold text-xl md:text-3xl my-4">
+              <h3 className="font-primaryBold text-xl  md:text-2xl 2xl:text-3xl my-4">
                 Scale Tomorrow
               </h3>
               <p className="font-primaryRegular md:text-xl">
@@ -153,7 +178,7 @@ const BusinessScaling = () => {
             </div>
           </div>
           <div className="bg-[#FFC107]/[50%] w-[360px] md:w-[430px] rounded-[24px] p-4 md:p-8 text-[#455A64]">
-            <h3 className="font-primaryBold text-xl md:text-3xl my-4">
+            <h3 className="font-primaryBold text-xl  md:text-2xl 2xl:text-3xl my-4">
               Sustainable Growth
             </h3>
             <p className="font-primaryRegular md:text-xl">

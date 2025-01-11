@@ -24,6 +24,12 @@ export default {
           "50%": { transform: "translateY(-10px)" },
         },
       },
+      transform: {
+        "rotate-y-180": "rotateY(180deg)",
+      },
+      perspective: {
+        1000: "1000px",
+      },
     },
   },
   plugins: [],

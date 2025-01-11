@@ -89,6 +89,7 @@ const Services = () => {
         />
       ),
       text: "Pan-African Startup Ecosystem Development",
+      path:"/services/pan-african-startup-ecosystem"
     },
     {
       icon: (

@@ -56,3 +56,16 @@
   transform: translate(2px, 2px); /* Adjust the distance for the border */
   font-weight: bold;
 }
+
+/* Add custom perspective */
+.perspective {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}

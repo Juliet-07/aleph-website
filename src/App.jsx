@@ -8,6 +8,7 @@ import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact-us";
 import BusinessConsulting from "./pages/Services/business-consulting";
 import BusinessScaling from "./pages/Services/business-scaling";
+import PanAfricanEcosystem from "./pages/Services/pan-african";
 
 const GeneralRoute = () => {
   return (
@@ -22,6 +23,7 @@ const GeneralRoute = () => {
           <Route path="/services" element={<Services />} />
           <Route path="/services/business-consulting" element={<BusinessConsulting />} />
           <Route path="/services/business-scaling" element={<BusinessScaling />} />
+          <Route path="/services/pan-african-startup-ecosystem" element={<PanAfricanEcosystem />} />
         </Routes>
       </Layout>
     </>
