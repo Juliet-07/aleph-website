@@ -57,7 +57,7 @@ const About = () => {
       {/* Hero Section */}
       <HeroSection
         backgroundGradient="bg-gradient-to-b from-[#038B25]/[100%] to-[#34C759]/[100%]"
-        textSize="text-xl md:text-4xl"
+        textSize="text-2xl md:text-5xl"
         subHeading={[
           {
             text: "We Are Passionate About Empowering Businesses To",
@@ -73,17 +73,17 @@ const About = () => {
       {/* About Us */}
       <div className="w-full my-10 flex flex-col md:flex-row items-center justify-center 2xl:justify-around p-4 md:gap-20">
         <div>
-          <h3 className="text-[#565656] font-primaryBold my-4 text-xl md:text-4xl 2xl:text-5xl text-center md:text-left">
+          <h3 className="text-[#565656] font-primaryBold my-4 text-2xl md:text-5xl 2xl:text-6xl text-center md:text-left">
             About Us
           </h3>
           <div className="md:w-[651px] text-base md:text-[23px] leading-8 font-primaryMedium text-[#455A64] text-justify">
             At Aleph Biz Solutions Ltd, we empower businesses to{" "}
-            <font color="#038B25" className="font-primaryBold">
-              thrive today{" "}
+            <font color="#038B25">
+              <b>thrive today</b>
             </font>
-            <font className="font-primaryBold">and </font>{" "}
-            <font color="#038B25" className="font-primaryBold">
-              scale tomorrow{" "}
+            <b> and </b>{" "}
+            <font color="#038B25">
+              <b>scale tomorrow</b>{" "}
             </font>{" "}
             by offering innovative, tailored solutions that address the dynamic
             needs of startups and businesses across Africa. Our commitment to
@@ -97,12 +97,12 @@ const About = () => {
             development. Aleph Biz Solutions is more than a service provider—we
             are your partner in achieving operational excellence and expansive
             growth, ensuring you{" "}
-            <font color="#038B25" className="font-primaryBold">
-              thrive today{" "}
+            <font color="#038B25">
+              <b>thrive today</b>{" "}
             </font>
             <font className="font-primaryBold">and </font>{" "}
-            <font color="#038B25" className="font-primaryBold">
-              scale tomorrow{" "}
+            <font color="#038B25">
+              <b>scale tomorrow</b>{" "}
             </font>
           </div>
         </div>
@@ -119,7 +119,7 @@ const About = () => {
         <div className="absolute top-0 left-0 right-0 bottom-0 bg-[#000000]/50 z-[2]"></div>
 
         {/* Header */}
-        <div className="font-primaryBold text-white text-2xl md:text-4xl 2xl:text-5xl z-[3]">
+        <div className="font-primaryBold text-white text-2xl md:text-5xl 2xl:text-6xl z-[3]">
           Who We Are
         </div>
 
@@ -180,7 +180,7 @@ const About = () => {
                 Let’s create a strategy that propels your business forward. Book
                 an appointment today
               </p>
-              <button className="w-[162px] md:w-[275px] h-10 md:h-[69px] rounded-xl md:rounded-[35px] bg-[#FFC107] font-primarySemibold text-xs md:text-base">
+              <button className="w-[162px] md:w-[275px] h-10 md:h-[69px] rounded-xl md:rounded-[35px] bg-[#FFC107] font-buttonText text-xs md:text-base">
                 Book An Appointment
               </button>
             </div>

@@ -4,6 +4,8 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
 @layer base {
   body {
     @apply font-[Montserrat];
@@ -31,13 +33,19 @@
 @font-face {
   font-family: "Bold";
   src: local("Montserrat-Bold"),
-    url("./fonts/Montserrat-Bold.ttf") format("truetype");
+    url("./fonts/Figtree-Bold.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "SemiBold";
   src: local("Montserrat-SemiBold"),
-    url("./fonts/Montserrat-SemiBold.ttf") format("truetype");
+    url("./fonts/Figtree-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "ButtonText";
+  src: local("Figtree-Regular"),
+    url("./fonts/Figtree-Regular.ttf") format("truetype");
 }
 
 .text-outline {

@@ -89,7 +89,7 @@ const Services = () => {
         />
       ),
       text: "Pan-African Startup Ecosystem Development",
-      path:"/services/pan-african-startup-ecosystem"
+      path: "/services/pan-african-startup-ecosystem",
     },
     {
       icon: (
@@ -130,7 +130,7 @@ const Services = () => {
         />
       ),
       text: "Business Scaling Services",
-      path:"/services/business-scaling"
+      path: "/services/business-scaling",
     },
   ];
   return (
@@ -151,10 +151,10 @@ const Services = () => {
       {/* Services We Offer */}
       <div className="w-full flex flex-col items-center justify-center my-10">
         <div className="text-center mb-6">
-          <p className="md:text-2xl font-primaryRegular text-[#34C759]">
+          <p className="text-xl md:text-3xl font-primaryRegular text-[#34C759]">
             What We Offer
           </p>
-          <div className="font-primaryBold text-2xl md:text-5xl text-[#565656]">
+          <div className="font-primaryBold text-3xl md:text-5xl 2xl:text-6xl text-[#565656]">
             Our Services
           </div>
         </div>

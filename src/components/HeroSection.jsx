@@ -36,7 +36,7 @@ const HeroSection = ({
       {/* Button */}
       <button
         onClick={onButtonClick}
-        className="w-[189px] md:w-[253px] h-[52px] md:h-[69px] mt-10 bg-[#FFC107] hover:bg-yellow-500 text-black font-primarySemibold rounded-[35px] transition-all duration-300"
+        className="w-[189px] md:w-[253px] h-[52px] md:h-[69px] mt-14 bg-[#FFC107] hover:bg-yellow-500 text-black font-primarySemibold rounded-[35px] transition-all duration-300 "
       >
         {buttonLabel}
       </button>

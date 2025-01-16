@@ -9,6 +9,7 @@ export default {
         primaryMedium: ["Medium"],
         primarySemibold: ["SemiBold"],
         primaryBold: ["Bold"],
+        buttonText: ["ButtonText"],
       },
       animation: {
         marquee: "marquee 10s linear infinite",

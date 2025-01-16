@@ -26,7 +26,7 @@ const BusinessConsulting = () => {
       {/* Hero Section */}
       <div className="w-full flex flex-col md:flex-row items-center justify-around bg-gradient-to-b from-[#038B25]/[100%] to-[#34C759]/[100%] p-4 md:p-10 gap-10">
         <div className="grid gap-4">
-          <h1 className="text-white font-primaryBold text-2xl md:text-5xl md:leading-[90px] text-center md:text-left">
+          <h1 className="text-white font-primaryBold text-2xl md:text-5xl md:leading-[70px] text-center md:text-left">
             Business <br />
             Consulting
           </h1>

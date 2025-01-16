@@ -167,20 +167,29 @@ const Home = () => {
               We Help Businesses <font color="#34C759">Thrive</font>
               <br /> And Scale
             </div>
-            <div className="w-[889px] h-[108px] text-xl font-primaryMedium text-[#565656] text-center">
-               At Aleph Biz Solutions Ltd, we empower businesses to achieve
+            <div className="w-[889px] h-[108px] text-xl font-primaryRegular text-[#565656] text-center leading-10 ">
+                At Aleph Biz Solutions Ltd, we empower businesses to achieve
               sustainable success and strategic growth. Whether you're looking
               to optimize operations, expand your market reach, or adopt
               innovative technologies, our tailored solutions are designed to
-              help you <b>thrive</b> today and <b>scale</b> for tomorrow.
+              help you{" "}
+              <font color="#34C759">
+                <b>thrive today</b>
+              </font>
+              <font color="#565656">
+                <b> and </b>{" "}
+              </font>
+              <font color="#34C759">
+                <b>scale tomorrow</b>
+              </font>
             </div>
-            <div className="flex gap-10">
-              <div className="w-[253px] h-[69px] flex items-center justify-center text-white text-xl font-primaryMedium rounded-full bg-[#34C759]">
+            <div className="flex gap-10 my-10">
+              <div className="w-[253px] h-[69px] flex items-center justify-center text-white text-xl font-buttonText rounded-full bg-[#34C759]">
                 Get Started With Us
               </div>
               <Link
                 to="/about-us"
-                className="w-[148px] h-[69px] rounded-full flex items-center justify-center border border-[#565656] text-[#565656] text-xl font-primaryMedium"
+                className="w-[148px] h-[69px] rounded-full flex items-center justify-center border border-[#565656] text-[#565656] text-xl font-buttonText"
               >
                 About Us
               </Link>
@@ -194,20 +203,29 @@ const Home = () => {
               We Help Businesses <font color="#34C759">Thrive </font>
               And Scale
             </div>
-            <div className="text-sm font-primaryMedium text-[#565656] text-center">
+            <div className="text-sm font-primaryRegular leading-6 text-[#565656] text-center">
                At Aleph Biz Solutions Ltd, we empower businesses to achieve
               sustainable success and strategic growth. Whether you're looking
               to optimize operations, expand your market reach, or adopt
               innovative technologies, our tailored solutions are designed to
-              help you <b>thrive</b> today and <b>scale</b> for tomorrow.
+              help you{" "}
+              <font color="#34C759">
+                <b>thrive today</b>
+              </font>
+              <font color="#565656">
+                <b> and </b>{" "}
+              </font>
+              <font color="#34C759">
+                <b>scale tomorrow</b>
+              </font>
             </div>
             <div className="flex flex-col gap-4">
-              <div className="w-[180px] h-[50px] bg-[#34C759] text-white font-primaryMedium rounded-full flex items-center justify-center">
+              <div className="w-[180px] h-[50px] bg-[#34C759] text-white font-buttonText rounded-full flex items-center justify-center">
                 Contact Us
               </div>
               <Link
                 to="/about-us"
-                className="w-[180px] h-[50px] border border-[#565656] text-[#565656] font-primaryMedium rounded-full flex items-center justify-center"
+                className="w-[180px] h-[50px] border border-[#565656] text-[#565656] font-buttonText rounded-full flex items-center justify-center"
               >
                 About Us
               </Link>
@@ -249,12 +267,12 @@ const Home = () => {
             <h2 className="md:text-2xl font-primaryRegular text-[#34C759]">
               About Aleph Biz
             </h2>
-            <div className="font-primaryBold text-2xl md:text-5xl text-[#565656]">
+            <div className="font-primaryBold text-3xl md:text-5xl text-[#565656]">
               Who We Are
             </div>
           </div>
 
-          <p className="text-[#565656] md:text-xl my-2 md:mt-4 font-primaryRegular text-center md:text-left p-2 md:p-0">
+          <p className="text-[#565656] md:text-xl my-2 md:mt-4 font-primaryRegular leading-8 md:leading-10 text-center md:text-left p-2 md:p-0">
             Aleph Biz Solutions Ltd is a forward-driven company dedicated to
             helping businesses thrive and scale in a competitive global
             landscape. With a strong presence in Rwanda and beyond, we connect
@@ -264,13 +282,13 @@ const Home = () => {
           <div className="mt-6 flex items-center md:items-start justify-center md:justify-start space-x-4">
             <Link
               to="/contact-us"
-              className="w-[120px] md:w-[171px] h-[50px] md:h-[77px] bg-[#34C759] text-white md:text-xl rounded-full flex items-center justify-center font-primaryMedium"
+              className="w-[120px] md:w-[171px] h-[50px] md:h-[77px] bg-[#34C759] text-white md:text-xl rounded-full flex items-center justify-center font-buttonText"
             >
               Contact Us
             </Link>
             <Link
               to="/about-us"
-              className="w-[153px] md:w-[217px] h-[50px] md:h-[77px] text-[#565656] border border-[#565656] md:text-xl rounded-full flex items-center justify-center font-primaryMedium"
+              className="w-[153px] md:w-[217px] h-[50px] md:h-[77px] text-[#565656] border border-[#565656] md:text-xl rounded-full flex items-center justify-center font-buttonText"
             >
               More About Us
             </Link>
@@ -281,28 +299,28 @@ const Home = () => {
       <div className="w-full flex items-center justify-center my-4">
         <div className="w-full h-[71px] md:h-[191px] flex items-center justify-evenly bg-[#FFE784]/[20%] text-white font-bold p-2 font-primaryMedium">
           <div className="flex flex-col items-center justify-center">
-            <p className="text-xl md:text-3xl font-primaryBold text-[#34C759]">
+            <p className="text-xl md:text-4xl font-primaryBold text-[#34C759]">
               400 +
             </p>
-            <p className="font-primaryRegular text-[8px] md:text-lg text-[#455A64] px-2 text-center">
+            <p className="font-primaryMedium text-[8px] md:text-xl text-[#455A64] px-2 text-center">
               Professional have been empowered
             </p>
           </div>
           <div className="px-2 md:px-4 border border-gray-500 rotate-90"></div>
           <div className="flex flex-col items-center justify-center">
-            <p className="text-xl md:text-3xl font-primaryBold text-[#34C759]">
+            <p className="text-xl md:text-4xl font-primaryBold text-[#34C759]">
               20 +
             </p>
-            <p className="font-primaryRegular text-[8px] md:text-lg text-[#455A64] px-2 text-center">
+            <p className="font-primaryMedium text-[8px] md:text-xl text-[#455A64] px-2 text-center">
               Businesses have been transformed
             </p>
           </div>
           <div className="px-2 md:px-4 border border-gray-500 rotate-90"></div>
           <div className="flex flex-col items-center justify-center">
-            <p className="text-xl md:text-3xl font-primaryBold text-[#34C759]">
+            <p className="text-xl md:text-4xl font-primaryBold text-[#34C759]">
               5 +
             </p>
-            <p className="font-primaryRegular text-[8px] md:text-lg text-[#455A64] px-2 text-center">
+            <p className="font-primaryMedium text-[8px] md:text-xl text-[#455A64] px-2 text-center">
               Startups are currently being financed
             </p>
           </div>
@@ -318,10 +336,10 @@ const Home = () => {
       {/* Mission & Vision */}
       <div className="w-full flex flex-col md:flex-row items-center justify-center md:justify-between p-4 md:p-10">
         <div className="text-center md:text-left">
-          <p className="text-[#34C759] font-primaryMedium md:text-3xl">
+          <p className="text-[#34C759] font-primaryMedium text-xl md:text-3xl 2xl:text-4xl">
             Our Assignment
           </p>
-          <div className="font-primaryBold text-2xl md:text-4xl 2xl:text-5xl text-[#565656]">
+          <div className="font-primaryBold text-3xl md:text-5xl 2xl:text-6xl text-[#565656]">
             What We Stand For
           </div>
         </div>
@@ -364,14 +382,14 @@ const Home = () => {
       </div>
       {/* What We Offer */}
       <div className="w-full bg-gradient-to-r from-[#34C759]/[20%] to-[#F7DC6F]/[20%] hidden md:flex items-center justify-center p-10">
-        <div className="w-full md:p-4 bg-white rounded-t-[50px] flex items-center">
+        <div className="w-full md:p-5 2xl:p-10 bg-white rounded-t-[50px] flex items-center gap-10">
           <div className=" flex-1 p-6 md:space-y-10">
             {/* Right: Writeup */}
             <div className="w-full md:block flex flex-col items-center justify-center">
-              <h2 className="md:text-2xl font-primaryRegular text-[#34C759]">
+              <h2 className="md:text-2xl 2xl:text-4xl font-primaryRegular text-[#34C759]">
                 Our Services
               </h2>
-              <div className="font-primaryBold text-2xl md:text-5xl text-[#565656]">
+              <div className="font-primaryBold text-2xl md:text-5xl 2xl:text-6xl text-[#565656]">
                 What We Offer
               </div>
             </div>
@@ -384,13 +402,13 @@ const Home = () => {
             <div className="mt-6 flex items-center md:items-start justify-center md:justify-start space-x-4">
               <Link
                 to="/contact-us"
-                className="w-[120px] md:w-[171px] h-[50px] md:h-[77px] bg-[#34C759] text-white md:text-xl rounded-full flex items-center justify-center font-primaryMedium"
+                className="w-[120px] md:w-[171px] h-[50px] md:h-[77px] bg-[#34C759] text-white md:text-xl rounded-full flex items-center justify-center font-buttonText"
               >
                 Contact Us
               </Link>
               <Link
                 to="/services"
-                className="w-[153px] md:w-[217px] h-[50px] md:h-[77px] text-[#565656] border border-[#565656] md:text-xl rounded-full flex items-center justify-center font-primaryMedium"
+                className="w-[153px] md:w-[217px] h-[50px] md:h-[77px] text-[#565656] border border-[#565656] md:text-xl rounded-full flex items-center justify-center font-buttonText"
               >
                 See All Our Services
               </Link>
@@ -427,8 +445,10 @@ const Home = () => {
         {/* Writeup */}
         <div className=" flex-1 p-6 md:space-y-10">
           <div className="w-full flex flex-col items-center justify-center">
-            <h2 className="font-primaryRegular text-[#34C759]">Our Services</h2>
-            <div className="font-primaryBold text-2xl md:text-5xl text-[#565656]">
+            <h2 className="font-primaryRegular text-xl text-[#34C759]">
+              Our Services
+            </h2>
+            <div className="font-primaryBold text-3xl text-[#565656]">
               What We Offer
             </div>
           </div>
@@ -468,13 +488,13 @@ const Home = () => {
           <div className="my-4 flex items-center md:items-start justify-center md:justify-start space-x-4">
             <Link
               to="/contact-us"
-              className="w-[120px] md:w-[171px] h-[50px] md:h-[77px] bg-[#34C759] text-white md:text-xl rounded-full flex items-center justify-center font-primaryMedium"
+              className="w-[120px] md:w-[171px] h-[50px] md:h-[77px] bg-[#34C759] text-white md:text-xl rounded-full flex items-center justify-center font-buttonText"
             >
               Contact Us
             </Link>
             <Link
               to="/services"
-              className="w-[186px] h-[50px] text-[#565656] border border-[#565656] rounded-full flex items-center justify-center font-primaryMedium"
+              className="w-[186px] h-[50px] text-[#565656] border border-[#565656] rounded-full flex items-center justify-center font-buttonText"
             >
               See All Our Services
             </Link>
@@ -483,11 +503,11 @@ const Home = () => {
       </div>
       {/* Testimonials */}
       <div className="w-full flex flex-col md:flex-row items-center justify-between p-4 md:p-10">
-        <div className="flex flex-col items-center justify-center md:items-start md:justify-start">
-          <h2 className="md:text-2xl font-primaryRegular text-[#34C759]">
+        <div className="flex flex-col items-center justify-center md:items-start md:justify-start my-4">
+          <h2 className="text-xl md:text-3xl font-primaryRegular text-[#34C759]">
             Testimonials
           </h2>
-          <div className="font-primaryBold text-2xl md:text-5xl text-[#565656] text-center md:text-left">
+          <div className="font-primaryBold text-3xl md:text-5xl 2xl:text-6xl text-[#565656] text-center md:text-left">
             What Our Clients Are
             <br /> Saying
           </div>
@@ -529,17 +549,17 @@ const Home = () => {
       {/* Blog */}
       <div className="w-full flex flex-col items-center justify-center">
         <div className="flex items-center justify-center gap-10 my-4 md:my-10">
-          <div className="flex flex-col items-center justify-center md:items-start md:justify-start">
-            <h2 className="md:text-2xl font-primaryRegular text-[#34C759]">
+          <div className="flex flex-col items-center justify-center md:items-start md:justify-start my-4">
+            <h2 className="text-xl md:text-3xl font-primaryRegular text-[#34C759]">
               Our Blog
             </h2>
-            <div className="font-primaryBold text-2xl md:text-5xl text-[#565656]">
+            <div className="font-primaryBold text-3xl md:text-5xl 2xl:text-6xl text-[#565656]">
               Latest Articles and Insights
             </div>
           </div>
           <Link
             to="/blogs"
-            className="hidden w-[245px] h-[77px] border border-[#565656] rounded-full md:flex items-center justify-center text-[#565656] text-lg font-primaryMedium"
+            className="hidden w-[245px] h-[77px] border border-[#565656] rounded-full md:flex items-center justify-center text-[#565656] text-lg font-buttonText"
           >
             View All Articles
           </Link>
@@ -592,7 +612,7 @@ const Home = () => {
 
         <Link
           to="/blogs"
-          className="md:hidden w-[153px] h-[51px] border border-[#565656] rounded-full flex items-center justify-center text-[#565656] font-primaryMedium mb-4"
+          className="md:hidden w-[153px] h-[51px] border border-[#565656] rounded-full flex items-center justify-center text-[#565656] font-buttonText mb-4"
         >
           View All Articles
         </Link>
@@ -606,18 +626,18 @@ const Home = () => {
       >
         <div className="absolute top-0 left-0 right-0 bottom-0 z-[2]"></div>
         <div className="w-full flex flex-col items-center justify-center relative z-[3] p-10">
-          <div className="md:w-1/2 flex items-center justify-between my-4 md:my-10">
+          <div className="md:w-1/2 flex items-center justify-between my-4 md:my-10 md:gap-4 2xl:gap-20">
             <div className="flex flex-col items-center justify-center md:items-start md:justify-start">
-              <h2 className="md:text-2xl font-primaryRegular text-[#34C759]">
+              <h2 className="text-lg md:text-2xl 2xl:text-3xl font-primaryRegular text-[#34C759]">
                 Our Events
               </h2>
-              <div className="font-primaryBold text-2xl md:text-4xl text-white">
+              <div className="font-primaryBold text-3xl md:text-4xl 2xl:text-6xl text-white">
                 Upcoming Events
               </div>
             </div>
             <Link
               to="/events"
-              className="hidden w-[221px] h-[60px] border border-white rounded-full md:flex items-center justify-center text-white text-lg font-primaryMedium"
+              className="hidden w-[221px] h-[60px] border border-white rounded-full md:flex items-center justify-center text-white text-lg font-buttonText my-4"
             >
               View All Events
             </Link>
@@ -674,10 +694,10 @@ const Home = () => {
       {/* Our Partners */}
       <div className="w-full flex flex-col items-center justify-center space-y-10 my-10 overflow-hidden">
         <div className="flex flex-col items-center justify-center md:items-start md:justify-start">
-          <h2 className="md:text-2xl font-primaryRegular text-[#34C759]">
+          <h2 className="text-xl md:text-3xl font-primaryRegular text-[#34C759]">
             Our Partners
           </h2>
-          <div className="font-primaryBold text-2xl md:text-5xl text-[#565656]">
+          <div className="font-primaryBold text-3xl md:text-5xl 2xl:text-6xl text-[#565656]">
             We Don't Walk Alone
           </div>
         </div>
