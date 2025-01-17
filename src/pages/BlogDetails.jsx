@@ -1,34 +1,12 @@
 import React from "react";
-import HeroSection from "../components/HeroSection";
 import BG from "../assets/bgThrive.svg";
 import BGMobile from "../assets/bgThriveMobile.svg";
 import WaterMark from "../assets/water-mark.svg";
 import BlogPreview from "../assets/blog-preview.svg";
 import { Link } from "react-router-dom";
 
-const Blogs = () => {
+const BlogDetails = () => {
   const blogs = [
-    {
-      title: "Real Estate in Rwanda",
-      description:
-        "We’re here to help your business reach its full potential. Whether you need innovative strategies, tailored solutions, or a trusted partner to navigate challenges, we’ve got you covered. ",
-      date: "Dec 4, 2024",
-      path: "",
-    },
-    {
-      title: "Real Estate in Rwanda",
-      description:
-        "We’re here to help your business reach its full potential. Whether you need innovative strategies, tailored solutions, or a trusted partner to navigate challenges, we’ve got you covered. ",
-      date: "Dec 4, 2024",
-      path: "",
-    },
-    {
-      title: "Real Estate in Rwanda",
-      description:
-        "We’re here to help your business reach its full potential. Whether you need innovative strategies, tailored solutions, or a trusted partner to navigate challenges, we’ve got you covered. ",
-      date: "Dec 4, 2024",
-      path: "",
-    },
     {
       title: "Real Estate in Rwanda",
       description:
@@ -53,87 +31,54 @@ const Blogs = () => {
   ];
   return (
     <>
-      <HeroSection
-        backgroundGradient="bg-gradient-to-b from-[#038B25]/[100%] to-[#34C759]/[100%]"
-        textSize="text-3xl md:text-5xl"
-        subHeading={[
-          {
-            text: "Insights That Drive Success",
-            color: "white",
-          },
-          // { text: "Thrive", color: "#FFC107" },
-          // { text: "And", color: "white" },
-          // { text: "Scale", color: "#FFC107" },
-        ]}
-        buttonLabel="Get Started With Us"
-        // onButtonClick={handleButtonClick}
-      />
-      {/* Top or Recent article */}
-      <div className="relative w-full flex flex-col md:flex-row items-center justify-center bg-white my-10">
-        {/* Background Watermark */}
-        <div
-          className="absolute inset-0 bg-cover bg-right-top bg-no-repeat opacity-50 pointer-events-none"
-          style={{
-            backgroundImage: `url(${WaterMark})`,
-            backgroundSize: "50%",
-            backgroundPosition: "right top",
-          }}
-        ></div>
-
-        {/* Content */}
-        <div className="relative flex-1 m-4 md:p-6">
-          {/* Left: Images */}
-          <div className="flex items-center justify-center space-x-0">
-            {/* Replace these divs with your image components */}
-            {/* <img src={WhoWeAre1}/> */}
-            {/* <img src={WhoWeAre2}/> */}
-            <div className="">
-              <img
-                src={BlogPreview}
-                className="md:w-[571px] md:h-[372px]"
-                alt="aleph-biz"
-              />
-            </div>
-            {/* <div className="">
-              <img src={WhoWeAre2} alt="aleph-biz" />
-            </div> */}
-          </div>
-        </div>
-
-        <div className="relative flex-1 p-6 md:space-y-4">
-          {/* Right: Writeup */}
-          <div className="w-full md:block flex flex-col">
-            <h2 className="md:text-xl font-primaryRegular text-[#34C759]">
-              Insight
-            </h2>
-            <div className="font-primaryBold text-xl md:text-3xl text-[#565656]">
-              Real Estate In Rwanda
-            </div>
-          </div>
-
-          <p className="text-[#565656] md:text-xl my-2 font-primaryRegular leading-8 md:leading-10">
+      {/* Blod Details */}
+      <div className="p-5 md:p-20">
+        <img src={BlogPreview} alt="Blog Preview" className="w-full h-auto" />
+        <div className="grid gap-4 my-4 text-[#455A64]">
+          <h3 className="font-primaryBold text-2xl md:text-5xl tracking-wide">
+            Blog Title
+          </h3>
+          <p className="text-sm md:text-2xl font-primaryRegular leading-10 md:leading-[4rem] tracking-wide">
             We’re here to help your business reach its full potential. Whether
             you need innovative strategies, tailored solutions, or a trusted
-            partner to navigate challenges, we’ve got you covered.
+            partner to navigate challenges, we’ve got you covered. We’re here to
+            help your business reach its full potential. Whether you need
+            innovative strategies, tailored solutions, or a trusted partner to
+            navigate challenges, we’ve got you covered. We’re here to help your
+            business reach its full potential. Whether you need innovative
+            strategies, tailored solutions, or a trusted partner to navigate
+            challenges, we’ve got you covered. We’re here to help your business
+            reach its full potential. Whether you need innovative strategies,
+            tailored solutions, or a trusted partner to navigate challenges,
+            we’ve got you covered. We’re here to help your business reach its
+            full potential. Whether you need innovative strategies, tailored
+            solutions, or a trusted partner to navigate challenges, we’ve got
+            you covered. We’re here to help your business reach its full
+            potential. Whether you need innovative strategies, tailored
+            solutions, or a trusted partner to navigate challenges, we’ve got
+            you covered. We’re here to help your business reach its full
+            potential. Whether you need innovative strategies, tailored
+            solutions, or a trusted partner to navigate challenges, we’ve got
+            you covered. We’re here to help your business reach its full
+            potential. Whether you need innovative strategies, tailored
+            solutions, or a trusted partner to navigate challenges, we’ve got
+            you covered. We’re here to help your business reach its full
+            potential. Whether you need innovative strategies, tailored
+            solutions, or a trusted partner to navigate challenges, we’ve got
+            you covered. We’re here to help your business reach its full
+            potential. Whether you need innovative strategies, tailored
+            solutions, or a trusted partner to navigate challenges, we’ve got
+            you covered. We’re here to help your business reach its full
+            potential. Whether you need innovative strategies, tailored
+            solutions, or a trusted partner to navigate challenges, we’ve got
+            you covered.{" "}
           </p>
-          <div className="text-sm text-[#455A64]/60 font-primaryRegular tracking-wide">
-            Dec 4 2024 <span>.</span>
-            <span> 5 min read</span>
-          </div>
-          <div className="mt-4 flex items-center md:items-start md:justify-start space-x-4">
-            <Link
-              to="/contact-us"
-              className="w-[162px] md:w-[213px] h-[42px] md:h-[55px] bg-[#34C759] text-white md:text-xl rounded-full flex items-center justify-center font-buttonText"
-            >
-              Read Full Article
-            </Link>
-          </div>
         </div>
       </div>
       {/* Latest Articles */}
       <div className="w-full bg-[#E1F7E6] p-4 md:p-10 2xl:p-20">
         <div className="text-[#565656] text-2xl md:text-5xl font-primaryBold my-4 md:my-10">
-          Latest Articles
+          Other Articles
         </div>
         <div className="w-full hidden md:grid grid-cols-3 gap-10 2xl:gap-20">
           {blogs.map((blog) => (
@@ -260,4 +205,4 @@ const Blogs = () => {
   );
 };
 
-export default Blogs;
+export default BlogDetails;

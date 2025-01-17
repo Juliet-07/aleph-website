@@ -32,13 +32,13 @@
 
 @font-face {
   font-family: "Bold";
-  src: local("Montserrat-Bold"),
+  src: local("Figtree-Bold"),
     url("./fonts/Figtree-Bold.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "SemiBold";
-  src: local("Montserrat-SemiBold"),
+  src: local("Figtree-SemiBold"),
     url("./fonts/Figtree-SemiBold.ttf") format("truetype");
 }
 

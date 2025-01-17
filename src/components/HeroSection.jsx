@@ -12,7 +12,7 @@ const HeroSection = ({
 }) => {
   return (
     <div
-      className={`w-full flex flex-col items-center justify-center ${backgroundGradient} py-20 px-4 md:px-0`}
+      className={`w-full flex flex-col items-center justify-center ${backgroundGradient} py-10 px-4 md:px-0`}
     >
       {/* Overlapping Text */}
       <div className="relative text-center">
@@ -40,7 +40,7 @@ const HeroSection = ({
       >
         {buttonLabel}
       </button>
-      <div className="relative -bottom-[86px] md:-bottom-24">
+      <div className="relative -bottom-[50px] md:-bottom-[65px]">
         <img src={Scale} />
       </div>
     </div>
