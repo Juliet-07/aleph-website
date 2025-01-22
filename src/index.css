@@ -32,8 +32,7 @@
 
 @font-face {
   font-family: "Bold";
-  src: local("Figtree-Bold"),
-    url("./fonts/Figtree-Bold.ttf") format("truetype");
+  src: local("Figtree-Bold"), url("./fonts/Figtree-Bold.ttf") format("truetype");
 }
 
 @font-face {
@@ -76,4 +75,15 @@
 
 .backface-hidden {
   backface-visibility: hidden;
+}
+
+/* Default color for the pagination dots */
+.swiper-pagination-bullet {
+  background-color: #d1d1d1; /* Light gray */
+  opacity: 1; /* Ensure the dots are fully visible */
+}
+
+/* Active dot color */
+.swiper-pagination-bullet-active {
+  background-color: #34c759; /* Green */
 }

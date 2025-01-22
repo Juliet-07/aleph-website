@@ -11,10 +11,13 @@ import Brand from "../assets/brand.png";
 import Tech from "../assets/technology.png";
 import House from "../assets/property.png";
 import Venture from "../assets/venture.png";
-import VisitRwanda from "../assets/visit-rwanda.svg";
-import RwandAir from "../assets/rwandair.svg";
-import Bnr from "../assets/bnr.svg";
-import Brd from "../assets/brd.svg";
+// PARTNERS
+import Shifra from "../assets/shifra.svg";
+import BoundlessPay from "../assets/boundlessPay.svg";
+import SuperWoman from "../assets/superWoman.svg";
+import Ramp from "../assets/ramp.svg";
+import Lawyers from "../assets/infusionLawyer.svg";
+
 import EventsBG from "../assets/eventsBG.svg";
 import Events from "../assets/events.png";
 import Vision from "../assets/vision.svg";
@@ -23,6 +26,7 @@ import BlogPreview from "../assets/blog-preview.svg";
 import Ernest from "../assets/ernest.svg";
 import Senator from "../assets/senator.svg";
 import Tabs from "../assets/tabs.svg";
+import TestimonialsCarousel from "../components/TestimonialCarousel";
 
 const Home = () => {
   const services = [
@@ -88,6 +92,27 @@ const Home = () => {
     },
   ];
   const testimonials = [
+    {
+      name: "Ernest Iweha",
+      title: "Chief Visioner, Krafta Innovation Ltd",
+      image: Ernest, // Assuming `Ernest` is imported or defined elsewhere
+      feedback:
+        "Effective financial management requires more than just knowledge and skill. Your track record of experience sets you apart.",
+    },
+    {
+      name: "Senator Ihenyen",
+      title: "Lead Partner, Infusion Lawyers",
+      image: Senator, // Assuming `Senator` is imported or defined elsewhere
+      feedback:
+        "Aleph Biz Solutions, led by a CEO of great resourcefulness that combines business acumen with character and vision, is a company that adds priceless value across various value chains.",
+    },
+    {
+      name: "Tabitha Muthoni",
+      title: "Media Consultant and Advisor",
+      image: Tabs, // Assuming `Tabs` is imported or defined elsewhere
+      feedback:
+        "Working with Aleph Biz Solutions Ltd has been an exceptional experience. Their dedication to delivering innovative, scalable, and client-focused solutions is truly commendable.",
+    },
     {
       name: "Ernest Iweha",
       title: "Chief Visioner, Krafta Innovation Ltd",
@@ -502,50 +527,7 @@ const Home = () => {
         </div>
       </div>
       {/* Testimonials */}
-      <div className="w-full flex flex-col md:flex-row items-center justify-between p-4 md:p-10">
-        <div className="flex flex-col items-center justify-center md:items-start md:justify-start my-4">
-          <h2 className="text-xl md:text-3xl font-primaryRegular text-[#34C759]">
-            Testimonials
-          </h2>
-          <div className="font-primaryBold text-3xl md:text-5xl 2xl:text-6xl text-[#565656] text-center md:text-left">
-            What Our Clients Are
-            <br /> Saying
-          </div>
-        </div>
-        <div className="w-full md:w-auto flex flex-row md:flex-col gap-10 overflow-x-auto">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className={`min-w-[400px] md:min-w-[553px] min-h-[200px] shadow-xl bg-white flex items-center justify-between px-4`}
-              style={{
-                borderLeft: `8px solid ${
-                  borderColors[index % borderColors.length]
-                }`,
-              }}
-            >
-              <img
-                src={testimonial.image}
-                alt={testimonial.name}
-                className="md:w-[120px] md:h-[120px]"
-              />
-              <div className="grid gap-4">
-                <div>
-                  <h3 className="font-primarySemibold text-lg md:text-2xl text-[#1E1E1E]">
-                    {testimonial.name}
-                  </h3>
-                  <p className="text-sm md:text-lg font-primaryRegular text-[#565656]/[85%]">
-                    {testimonial.title}
-                  </p>
-                </div>
-                <p className="font-primaryRegular text-[#1E1E1E]/[80%] w-[227px] md:w-[322px]">
-                  {testimonial.feedback}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
+      <TestimonialsCarousel />
       {/* Blog */}
       <div className="w-full flex flex-col items-center justify-center">
         <div className="flex items-center justify-center gap-10 my-4 md:my-10">
@@ -695,7 +677,7 @@ const Home = () => {
       <div className="w-full flex flex-col items-center justify-center space-y-10 my-10 overflow-hidden">
         <div className="flex flex-col items-center justify-center md:items-start md:justify-start">
           <h2 className="text-xl md:text-3xl font-primaryRegular text-[#34C759]">
-            Our Partners
+            Our Ecosystem
           </h2>
           <div className="font-primaryBold text-3xl md:text-5xl 2xl:text-6xl text-[#565656]">
             We Don't Walk Alone
@@ -705,24 +687,29 @@ const Home = () => {
           {/* Scrolling Container */}
           <div className="flex items-center gap-10 space-x-10 animate-marquee">
             <img
-              src={VisitRwanda}
-              alt="VisitRwanda LOGO"
-              className="w-20 md:w-[174px] h-auto animate-bounce-slow"
+              src={Shifra}
+              alt="Shifra LOGO"
+              className="w-auto h-auto animate-bounce-slow"
             />
             <img
-              src={RwandAir}
-              alt="Rwandair LOGO"
-              className="w-16 md:w-[140px] h-auto animate-bounce-slow"
+              src={BoundlessPay}
+              alt="BoundlessPay LOGO"
+              className="w-auto h-auto animate-bounce-slow"
             />
             <img
-              src={Bnr}
-              alt="Bnr LOGO"
-              className="w-24 md:w-[92px] h-auto animate-bounce-slow"
+              src={SuperWoman}
+              alt="Superwoman LOGO"
+              className="w-auto h-auto animate-bounce-slow"
             />
             <img
-              src={Brd}
-              alt="Brd LOGO"
-              className="w-20 md:w-[162px] h-auto animate-bounce-slow"
+              src={Ramp}
+              alt="Ramo LOGO"
+              className="w-auto h-auto animate-bounce-slow"
+            />
+            <img
+              src={Lawyers}
+              alt="Infusion Lawyers LOGO"
+              className="w-auto h-auto animate-bounce-slow"
             />
           </div>
         </div>
