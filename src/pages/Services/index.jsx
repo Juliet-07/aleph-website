@@ -39,6 +39,7 @@ const Services = () => {
         />
       ),
       text: "Financial Management & Advisory",
+      path: "/services/finance-services",
     },
     {
       icon: (
@@ -49,6 +50,7 @@ const Services = () => {
         />
       ),
       text: "Branding & Public Relations",
+      path: "/services/branding-services",
     },
     {
       icon: (
@@ -59,6 +61,7 @@ const Services = () => {
         />
       ),
       text: "Custom Technology Solutions",
+      path: "/services/custom-tech-services",
     },
     {
       icon: (
@@ -69,6 +72,7 @@ const Services = () => {
         />
       ),
       text: "Real Estate Services",
+      path: "/services/real-estate-services",
     },
     {
       icon: (
@@ -79,6 +83,7 @@ const Services = () => {
         />
       ),
       text: "Venture Capital & Investment",
+      path: "/services/venture-capital-services",
     },
     {
       icon: (
@@ -100,6 +105,7 @@ const Services = () => {
         />
       ),
       text: "Emerging Technology Integration",
+      path: "/services/tech-integration",
     },
     {
       icon: (
@@ -110,6 +116,7 @@ const Services = () => {
         />
       ),
       text: "Training & Development",
+      path: "/services/training-services",
     },
     {
       icon: (
@@ -120,6 +127,7 @@ const Services = () => {
         />
       ),
       text: "Research & Market Insights",
+      path: "/services/research-services",
     },
     {
       icon: (

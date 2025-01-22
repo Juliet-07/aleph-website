@@ -1,5 +1,5 @@
 import React from "react";
-import WhoWeAre1 from "../../assets/services-holder.svg";
+import WhoWeAre1 from "../../assets/panAfrican.svg";
 import BG from "../../assets/bgThrive.svg";
 import BGMobile from "../../assets/bgThriveMobile.svg";
 import WaterMark from "../../assets/water-mark.svg";

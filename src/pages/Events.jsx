@@ -1,4 +1,5 @@
 import React from "react";
+import EventBG from "../assets/events-bg.svg";
 import EventPreview from "../assets/events.png";
 import UpNext from "../assets/upNext.svg";
 import WaterMark from "../assets/water-mark.svg";
@@ -33,13 +34,12 @@ const Events = () => {
     <>
       <div
         className="w-full h-[238px] md:h-[500px] relative bg-cover md:px-10 2xl:px-20 md:flex items-center"
-        // style={{
-        //   // backgroundImage: `url(${"https://spcimagestorage001.blob.core.windows.net/spc-community-images/community-hero.png"})`,
-        //   backgroundImage: `url(${CommunityHero})`,
-        // }}
+        style={{
+          backgroundImage: `url(${EventBG})`,
+        }}
       >
         <div className="absolute top-0 left-0 right-0 bottom-0 bg-[#000000]/60 z-[2]"></div>
-        <div className="w-full flex flex-col items-center justify-center relative z-[3] p-4 md:mt-4">
+        <div className="w-full flex flex-col items-center justify-center relative z-[3] p-4 pt-20 md:pt-0 md:mt-4">
           <p className="text-3xl md:text-6xl font-primaryBold text-white md:w-[706px] mb-2 text-center tracking-wide">
             Where <font color="#FFC107  ">Connections</font> and Opportunities
             Happen
@@ -64,7 +64,9 @@ const Events = () => {
 
           <div className="flex items-center justify-center space-x-0">
             <div className="">
-              <div className="text-[#565656] text-2xl md:text-5xl font-primaryBold py-5">Up Next</div>
+              <div className="text-[#565656] text-2xl md:text-5xl font-primaryBold py-5">
+                Up Next
+              </div>
               <img
                 src={UpNext}
                 className="md:w-[571px] md:h-[372px]"

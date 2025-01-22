@@ -10,6 +10,14 @@ import Contact from "./pages/Contact-us";
 import BusinessConsulting from "./pages/Services/business-consulting";
 import BusinessScaling from "./pages/Services/business-scaling";
 import PanAfricanEcosystem from "./pages/Services/pan-african";
+import TechIntegration from "./pages/Services/techIntegration";
+import FinanceServices from "./pages/Services/finance";
+import Training from "./pages/Services/training";
+import RealEstate from "./pages/Services/realEstate";
+import VentureServices from "./pages/Services/venture";
+import CustomTechServices from "./pages/Services/customTech";
+import ResearchServices from "./pages/Services/research";
+import BrandingServices from "./pages/Services/branding";
 
 const GeneralRoute = () => {
   return (
@@ -35,6 +43,35 @@ const GeneralRoute = () => {
           <Route
             path="/services/pan-african-startup-ecosystem"
             element={<PanAfricanEcosystem />}
+          />
+          <Route
+            path="/services/tech-integration"
+            element={<TechIntegration />}
+          />
+          <Route
+            path="/services/finance-services"
+            element={<FinanceServices />}
+          />
+          <Route path="/services/training-services" element={<Training />} />
+          <Route
+            path="/services/real-estate-services"
+            element={<RealEstate />}
+          />
+          <Route
+            path="/services/venture-capital-services"
+            element={<VentureServices />}
+          />
+          <Route
+            path="/services/custom-tech-services"
+            element={<CustomTechServices />}
+          />
+          <Route
+            path="/services/research-services"
+            element={<ResearchServices />}
+          />
+          <Route
+            path="/services/branding-services"
+            element={<BrandingServices />}
           />
         </Routes>
       </Layout>
