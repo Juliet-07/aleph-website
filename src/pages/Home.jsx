@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import HeroBG from "../assets/hero-bg.png";
 import WaterMark from "../assets/water-mark.png";
@@ -23,12 +23,20 @@ import Events from "../assets/events.png";
 import Vision from "../assets/vision.svg";
 import Mission from "../assets/mission.svg";
 import BlogPreview from "../assets/blog-preview.svg";
-import Ernest from "../assets/ernest.svg";
-import Senator from "../assets/senator.svg";
-import Tabs from "../assets/tabs.svg";
+import JConnect from "../assets/j-connect.png";
+import Krafta from "../assets/krafta.png";
+import Manilla from "../assets/manilla.png";
 import TestimonialsCarousel from "../components/TestimonialCarousel";
+import { motion } from "framer-motion";
+import { createClient } from "contentful";
+import moment from "moment";
 
 const Home = () => {
+  const spaceID = import.meta.env.VITE_REACT_APP_SPACE_ID;
+  const token = import.meta.env.VITE_REACT_APP_CONTENT_ACCESS_TOKEN;
+  const client = createClient({ space: spaceID, accessToken: token });
+  const [blogPosts, setBlogPosts] = useState([]);
+
   const services = [
     {
       icon: (
@@ -39,6 +47,7 @@ const Home = () => {
         />
       ),
       text: "Business Consulting",
+      path: "/services/business-consulting",
     },
     {
       icon: (
@@ -49,6 +58,7 @@ const Home = () => {
         />
       ),
       text: "Financial Management & Advisory",
+      path: "/services/finance-services",
     },
     {
       icon: (
@@ -59,6 +69,7 @@ const Home = () => {
         />
       ),
       text: "Branding & Public Relations",
+      path: "/services/branding-services",
     },
     {
       icon: (
@@ -69,6 +80,7 @@ const Home = () => {
         />
       ),
       text: "Custom Technology Solutions",
+      path: "/services/custom-tech-services",
     },
     {
       icon: (
@@ -79,6 +91,7 @@ const Home = () => {
         />
       ),
       text: "Real Estate Services",
+      path: "/services/real-estate-services",
     },
     {
       icon: (
@@ -89,73 +102,7 @@ const Home = () => {
         />
       ),
       text: "Venture Capital & Investment",
-    },
-  ];
-  const testimonials = [
-    {
-      name: "Ernest Iweha",
-      title: "Chief Visioner, Krafta Innovation Ltd",
-      image: Ernest, // Assuming `Ernest` is imported or defined elsewhere
-      feedback:
-        "Effective financial management requires more than just knowledge and skill. Your track record of experience sets you apart.",
-    },
-    {
-      name: "Senator Ihenyen",
-      title: "Lead Partner, Infusion Lawyers",
-      image: Senator, // Assuming `Senator` is imported or defined elsewhere
-      feedback:
-        "Aleph Biz Solutions, led by a CEO of great resourcefulness that combines business acumen with character and vision, is a company that adds priceless value across various value chains.",
-    },
-    {
-      name: "Tabitha Muthoni",
-      title: "Media Consultant and Advisor",
-      image: Tabs, // Assuming `Tabs` is imported or defined elsewhere
-      feedback:
-        "Working with Aleph Biz Solutions Ltd has been an exceptional experience. Their dedication to delivering innovative, scalable, and client-focused solutions is truly commendable.",
-    },
-    {
-      name: "Ernest Iweha",
-      title: "Chief Visioner, Krafta Innovation Ltd",
-      image: Ernest, // Assuming `Ernest` is imported or defined elsewhere
-      feedback:
-        "Effective financial management requires more than just knowledge and skill. Your track record of experience sets you apart.",
-    },
-    {
-      name: "Senator Ihenyen",
-      title: "Lead Partner, Infusion Lawyers",
-      image: Senator, // Assuming `Senator` is imported or defined elsewhere
-      feedback:
-        "Aleph Biz Solutions, led by a CEO of great resourcefulness that combines business acumen with character and vision, is a company that adds priceless value across various value chains.",
-    },
-    {
-      name: "Tabitha Muthoni",
-      title: "Media Consultant and Advisor",
-      image: Tabs, // Assuming `Tabs` is imported or defined elsewhere
-      feedback:
-        "Working with Aleph Biz Solutions Ltd has been an exceptional experience. Their dedication to delivering innovative, scalable, and client-focused solutions is truly commendable.",
-    },
-  ];
-  const blogs = [
-    {
-      title: "Real Estate in Rwanda",
-      description:
-        "We’re here to help your business reach its full potential. Whether you need innovative strategies, tailored solutions, or a trusted partner to navigate challenges, we’ve got you covered. ",
-      date: "Dec 4, 2024",
-      path: "",
-    },
-    {
-      title: "Real Estate in Rwanda",
-      description:
-        "We’re here to help your business reach its full potential. Whether you need innovative strategies, tailored solutions, or a trusted partner to navigate challenges, we’ve got you covered. ",
-      date: "Dec 4, 2024",
-      path: "",
-    },
-    {
-      title: "Real Estate in Rwanda",
-      description:
-        "We’re here to help your business reach its full potential. Whether you need innovative strategies, tailored solutions, or a trusted partner to navigate challenges, we’ve got you covered. ",
-      date: "Dec 4, 2024",
-      path: "",
+      path: "/services/venture-capital-services",
     },
   ];
   const events = [
@@ -175,7 +122,23 @@ const Home = () => {
     },
   ];
 
+  const latestBlog = 3;
+
   const borderColors = ["#FFC107", "#21295C", "#34C759"];
+
+  useEffect(() => {
+    const getAllEntries = async () => {
+      try {
+        await client.getEntries().then((entries) => {
+          console.log(entries, "checking entries");
+          setBlogPosts(entries.items);
+        });
+      } catch (error) {
+        console.log("error");
+      }
+    };
+    getAllEntries();
+  }, []);
 
   return (
     <>
@@ -188,10 +151,16 @@ const Home = () => {
           }}
         >
           <div className="flex flex-col items-center justify-center gap-10">
-            <div className="font-primaryBold text-6xl text-center leading-20 text-[#565656]">
-              We Help Businesses <font color="#34C759">Thrive</font>
-              <br /> And Scale
+            <div className="font-primaryBold text-6xl text-center leading-[1.2] text-[#565656]">
+              We Empower Businesses To <br />
+              <span className="text-[#34C759]">Thrive</span>
+              <span className="relative">
+                <span className="absolute inset-x-0 bottom-1 h-10 bg-[#FFC72C] -z-10"></span>
+                <span className="text-[#565656]"> And</span>
+              </span>
+              <span className="text-[#565656]"> Scale</span>
             </div>
+
             <div className="w-[889px] h-[108px] text-xl font-primaryRegular text-[#565656] text-center leading-10 ">
                 At Aleph Biz Solutions Ltd, we empower businesses to achieve
               sustainable success and strategic growth. Whether you're looking
@@ -209,12 +178,15 @@ const Home = () => {
               </font>
             </div>
             <div className="flex gap-10 my-10">
-              <div className="w-[253px] h-[69px] flex items-center justify-center text-white text-xl font-buttonText rounded-full bg-[#34C759]">
-                Get Started With Us
-              </div>
+              <a href="https://forms.gle/ktBqUbi41BzqNM2p7" target="_blank">
+                <div className="w-[253px] h-[69px] flex items-center justify-center text-white text-xl font-buttonText rounded-full bg-[#34C759] hover:bg-green-600 transition duration-200">
+                  Get Started With Us
+                </div>
+              </a>
+
               <Link
                 to="/about-us"
-                className="w-[148px] h-[69px] rounded-full flex items-center justify-center border border-[#565656] text-[#565656] text-xl font-buttonText"
+                className="w-[148px] h-[69px] rounded-full flex items-center justify-center border border-[#565656] text-[#565656] text-xl font-buttonText hover:text-green-500 transition duration-200"
               >
                 About Us
               </Link>
@@ -225,8 +197,8 @@ const Home = () => {
         <div className="block md:hidden relative bg-[#EEF4D7] py-4">
           <div className="flex flex-col items-center justify-center gap-6 p-4">
             <div className="font-primaryBold text-3xl text-center leading-20 text-[#565656]">
-              We Help Businesses <font color="#34C759">Thrive </font>
-              And Scale
+              We Empower Businesses To <font color="#34C759">Thrive </font>
+              And <font color="#FFC72C">Scale </font>
             </div>
             <div className="text-sm font-primaryRegular leading-6 text-[#565656] text-center">
                At Aleph Biz Solutions Ltd, we empower businesses to achieve
@@ -245,12 +217,15 @@ const Home = () => {
               </font>
             </div>
             <div className="flex flex-col gap-4">
-              <div className="w-[180px] h-[50px] bg-[#34C759] text-white font-buttonText rounded-full flex items-center justify-center">
-                Contact Us
-              </div>
+              <a href="https://forms.gle/ktBqUbi41BzqNM2p7" target="_blank">
+                <div className="w-[180px] h-[50px] bg-[#34C759] text-white font-buttonText rounded-full flex items-center justify-center hover:bg-green-600 transition duration-200">
+                  Get Started With Us
+                </div>
+              </a>
+
               <Link
                 to="/about-us"
-                className="w-[180px] h-[50px] border border-[#565656] text-[#565656] font-buttonText rounded-full flex items-center justify-center"
+                className="w-[180px] h-[50px] border border-[#565656] text-[#565656] font-buttonText rounded-full flex items-center justify-center hover:text-green-600 transition duration-200"
               >
                 About Us
               </Link>
@@ -271,7 +246,12 @@ const Home = () => {
         ></div>
 
         {/* Content */}
-        <div className="relative flex-1 m-4 md:p-6">
+        <motion.div
+          initial={{ opacity: 0, x: -200 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="relative flex-1 m-4 md:p-6"
+        >
           {/* Left: Images */}
           <div className="flex items-center justify-center space-x-0">
             {/* Replace these divs with your image components */}
@@ -284,9 +264,14 @@ const Home = () => {
               <img src={WhoWeAre2} alt="aleph-biz" />
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="relative flex-1 p-6 md:space-y-10">
+        <motion.div
+          initial={{ opacity: 0, x: 200 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="relative flex-1 p-6 md:space-y-10"
+        >
           {/* Right: Writeup */}
           <div className="w-full md:block flex flex-col items-center justify-center">
             <h2 className="md:text-2xl font-primaryRegular text-[#34C759]">
@@ -307,18 +292,18 @@ const Home = () => {
           <div className="mt-6 flex items-center md:items-start justify-center md:justify-start space-x-4">
             <Link
               to="/contact-us"
-              className="w-[120px] md:w-[171px] h-[50px] md:h-[77px] bg-[#34C759] text-white md:text-xl rounded-full flex items-center justify-center font-buttonText"
+              className="w-[120px] md:w-[171px] h-[50px] md:h-[77px] bg-[#34C759] text-white md:text-xl rounded-full flex items-center justify-center font-buttonText hover:bg-green-600 transition duration-200"
             >
               Contact Us
             </Link>
             <Link
               to="/about-us"
-              className="w-[153px] md:w-[217px] h-[50px] md:h-[77px] text-[#565656] border border-[#565656] md:text-xl rounded-full flex items-center justify-center font-buttonText"
+              className="w-[153px] md:w-[217px] h-[50px] md:h-[77px] text-[#565656] border border-[#565656] md:text-xl rounded-full flex items-center justify-center font-buttonText hover:bg-[#34C759] transition duration-200"
             >
               More About Us
             </Link>
           </div>
-        </div>
+        </motion.div>
       </div>
       {/* Results */}
       <div className="w-full flex items-center justify-center my-4">
@@ -427,13 +412,13 @@ const Home = () => {
             <div className="mt-6 flex items-center md:items-start justify-center md:justify-start space-x-4">
               <Link
                 to="/contact-us"
-                className="w-[120px] md:w-[171px] h-[50px] md:h-[77px] bg-[#34C759] text-white md:text-xl rounded-full flex items-center justify-center font-buttonText"
+                className="w-[120px] md:w-[171px] h-[50px] md:h-[77px] bg-[#34C759] text-white md:text-xl rounded-full flex items-center justify-center font-buttonText hover:bg-green-600 transition duration-200"
               >
                 Contact Us
               </Link>
               <Link
                 to="/services"
-                className="w-[153px] md:w-[217px] h-[50px] md:h-[77px] text-[#565656] border border-[#565656] md:text-xl rounded-full flex items-center justify-center font-buttonText"
+                className="w-[153px] md:w-[217px] h-[50px] md:h-[77px] text-[#565656] border border-[#565656] md:text-xl rounded-full flex items-center justify-center font-buttonText hover:bg-[#34C759] transition duration-200"
               >
                 See All Our Services
               </Link>
@@ -441,8 +426,9 @@ const Home = () => {
           </div>
           <div className="flex-1 grid grid-cols-2 2xl:grid-cols-3 gap-10">
             {services.map((service, index) => (
-              <div
+              <Link
                 key={index}
+                to={service.path}
                 className="group min-w-[260px] bg-[#FFE784]/[13%] border border-[#21295C] rounded-lg hover:bg-gradient-to-b hover:from-[#34C759] hover:to-[#038B25] hover:border-none text-[#455A64] hover:text-white p-5 2xl:space-y-4"
               >
                 {/* <div className="w-full h-full rounded-lg flex flex-col justify-center items-center hover:bg-transparent"> */}
@@ -460,7 +446,7 @@ const Home = () => {
                     style={{ animation: "pulse 1s infinite" }}
                   ></div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -487,8 +473,9 @@ const Home = () => {
           <div className="w-full bg-white rounded-t-lg flex items-center p-4">
             <div className="flex-1 grid grid-cols-2 gap-4">
               {services.map((service, index) => (
-                <div
+                <Link
                   key={index}
+                  to={service.path}
                   className="group min-w-[173px] bg-[#FFE784]/[13%] border border-[#21295C] rounded-lg hover:bg-gradient-to-b hover:from-[#34C759] hover:to-[#038B25] hover:border-none hover:text-white p-3 space-y-4"
                 >
                   <div className="flex items-center justify-between">
@@ -506,7 +493,7 @@ const Home = () => {
                     </div>
                   </div>
                   <p className="font-primaryMedium text-sm">{service.text}</p>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -528,8 +515,8 @@ const Home = () => {
       </div>
       {/* Testimonials */}
       <TestimonialsCarousel />
-      {/* Blog */}
-      <div className="w-full flex flex-col items-center justify-center">
+      {/* Blogs */}
+      {/* <div className="w-full flex flex-col items-center justify-center">
         <div className="flex items-center justify-center gap-10 my-4 md:my-10">
           <div className="flex flex-col items-center justify-center md:items-start md:justify-start my-4">
             <h2 className="text-xl md:text-3xl font-primaryRegular text-[#34C759]">
@@ -546,35 +533,40 @@ const Home = () => {
             View All Articles
           </Link>
         </div>
-        {/* Blog Carousel */}
+        Blog Carousel
         <div className="w-full flex items-center gap-10 2xl:gap-20 overflow-x-auto mb-4 p-4">
-          {blogs.map((blog) => (
+          {blogPosts.slice(0, latestBlog).map((blog) => (
             <div
-              // key={blog.id}
+              key={blog.sys.id}
               className="min-w-[250px] md:min-w-[400px] bg-white shadow-lg rounded-lg"
             >
               <img
-                src={BlogPreview}
-                alt="Blog Preview"
+                src={blog?.fields?.blogImage?.fields?.file?.url}
+                alt="Blog Image Preview"
                 className="w-full h-auto rounded-t-lg"
               />
               <div className="grid gap-4 p-4">
                 <div>
                   <p className="text-sm md:text-lg text-[#34C759] font-primaryRegular">
-                    Insight
+                    {blog?.fields?.blogSubtitle}
                   </p>
                   <div className="text-[#455A64] font-primarySemibold md:text-xl">
-                    {blog.title}
+                    {blog?.fields?.blogTitle}
                   </div>
                 </div>
                 <div className="font-primaryRegular text-xs md:text-lg text-[#455A64]">
-                  {blog.description}
+                  {blog?.fields?.blogSummary}
                 </div>
                 <div className="flex items-center justify-between">
                   <p className="text-xs md:text-sm font-primaryRegular text-[#455A64]/[60%]">
-                    {blog.date}
+                    {moment(blog?.fields?.createdDate).format(
+                      "MMMM Do, YYYY h:mm A"
+                    )}
                   </p>
-                  <div className="relative flex items-center gap-2 md:gap-4 justify-end">
+                  <Link
+                    to={`/blogs/blogDetails/${blog?.sys?.id}`}
+                    className="relative flex items-center gap-2 md:gap-4 justify-end"
+                  >
                     <p className="text-xs md:text-sm text-[#455A64] underline font-primaryRegular">
                       Read full article
                     </p>
@@ -585,7 +577,7 @@ const Home = () => {
                       className="relative z-0 w-[25px] h-[25px] bg-[#FFc107] rounded-full group-hover:bg-white animate-pulse"
                       style={{ animation: "pulse 1s infinite" }}
                     ></div>
-                  </div>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -598,7 +590,7 @@ const Home = () => {
         >
           View All Articles
         </Link>
-      </div>
+      </div> */}
       {/* Events */}
       <div
         className="w-full h-auto relative bg-cover md:px-10 2xl:px-20 md:flex items-center"
@@ -683,34 +675,33 @@ const Home = () => {
             We Don't Walk Alone
           </div>
         </div>
-        <div className="w-full overflow-hidden">
+        <div className="w-full">
           {/* Scrolling Container */}
-          <div className="flex items-center gap-10 space-x-10 animate-marquee">
-            <img
-              src={Shifra}
-              alt="Shifra LOGO"
-              className="w-auto h-auto animate-bounce-slow"
-            />
+          <div className="w-full flex items-center gap-10 space-x-10 animate-marquee">
+            <img src={Shifra} alt="Shifra LOGO" className="w-auto h-auto" />
             <img
               src={BoundlessPay}
               alt="BoundlessPay LOGO"
-              className="w-auto h-auto animate-bounce-slow"
+              className="w-auto h-auto"
             />
             <img
               src={SuperWoman}
               alt="Superwoman LOGO"
-              className="w-auto h-auto animate-bounce-slow"
+              className="w-auto h-auto"
             />
-            <img
-              src={Ramp}
-              alt="Ramo LOGO"
-              className="w-auto h-auto animate-bounce-slow"
-            />
+            <img src={Ramp} alt="Ramo LOGO" className="w-auto h-auto" />
             <img
               src={Lawyers}
               alt="Infusion Lawyers LOGO"
-              className="w-auto h-auto animate-bounce-slow"
+              className="w-auto h-auto"
             />
+            <img src={Manilla} alt="Manilla LOGO" className="w-20 h-auto" />
+            <img
+              src={JConnect}
+              alt="JConnect LOGO"
+              className="w-[150px] h-auto"
+            />
+            <img src={Krafta} alt="Krafta LOGO" className="w-[150px] h-auto" />
           </div>
         </div>
       </div>

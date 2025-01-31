@@ -1,77 +1,60 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import BG from "../assets/bgThrive.svg";
 import BGMobile from "../assets/bgThriveMobile.svg";
 import WaterMark from "../assets/water-mark.svg";
 import BlogPreview from "../assets/blog-preview.svg";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { createClient } from "contentful";
+import moment from "moment";
 
 const BlogDetails = () => {
-  const blogs = [
-    {
-      title: "Real Estate in Rwanda",
-      description:
-        "We’re here to help your business reach its full potential. Whether you need innovative strategies, tailored solutions, or a trusted partner to navigate challenges, we’ve got you covered. ",
-      date: "Dec 4, 2024",
-      path: "",
-    },
-    {
-      title: "Real Estate in Rwanda",
-      description:
-        "We’re here to help your business reach its full potential. Whether you need innovative strategies, tailored solutions, or a trusted partner to navigate challenges, we’ve got you covered. ",
-      date: "Dec 4, 2024",
-      path: "",
-    },
-    {
-      title: "Real Estate in Rwanda",
-      description:
-        "We’re here to help your business reach its full potential. Whether you need innovative strategies, tailored solutions, or a trusted partner to navigate challenges, we’ve got you covered. ",
-      date: "Dec 4, 2024",
-      path: "",
-    },
-  ];
+  const { id } = useParams();
+  const spaceID = import.meta.env.VITE_REACT_APP_SPACE_ID;
+  const token = import.meta.env.VITE_REACT_APP_CONTENT_ACCESS_TOKEN;
+  const client = createClient({ space: spaceID, accessToken: token });
+  const [singleBlogPost, setSingleBlogPost] = useState({});
+  const [blogPosts, setBlogPosts] = useState([]);
+  const otherBlogs = 3;
+
+  useEffect(() => {
+    const getEntryById = async () => {
+      try {
+        await client.getEntry(id).then((entries) => {
+          console.log(entries, "checking entries");
+          setSingleBlogPost(entries.fields);
+        });
+      } catch (error) {
+        console.log("error");
+      }
+    };
+    const getAllEntries = async () => {
+      try {
+        await client.getEntries().then((entries) => {
+          console.log(entries, "checking entries");
+          setBlogPosts(entries.items);
+        });
+      } catch (error) {
+        console.log("error");
+      }
+    };
+    getEntryById();
+    getAllEntries();
+  }, []);
   return (
     <>
-      {/* Blod Details */}
+      {/* Blog Details */}
       <div className="p-5 md:p-20">
-        <img src={BlogPreview} alt="Blog Preview" className="w-full h-auto" />
+        <img
+          src={singleBlogPost?.blogImage?.fields?.file?.url}
+          alt="Blog Preview"
+          className="w-full h-auto"
+        />
         <div className="grid gap-4 my-4 text-[#455A64]">
           <h3 className="font-primaryBold text-2xl md:text-5xl tracking-wide">
-            Blog Title
+            {singleBlogPost?.blogTitle}
           </h3>
           <p className="text-sm md:text-2xl font-primaryRegular leading-10 md:leading-[4rem] tracking-wide">
-            We’re here to help your business reach its full potential. Whether
-            you need innovative strategies, tailored solutions, or a trusted
-            partner to navigate challenges, we’ve got you covered. We’re here to
-            help your business reach its full potential. Whether you need
-            innovative strategies, tailored solutions, or a trusted partner to
-            navigate challenges, we’ve got you covered. We’re here to help your
-            business reach its full potential. Whether you need innovative
-            strategies, tailored solutions, or a trusted partner to navigate
-            challenges, we’ve got you covered. We’re here to help your business
-            reach its full potential. Whether you need innovative strategies,
-            tailored solutions, or a trusted partner to navigate challenges,
-            we’ve got you covered. We’re here to help your business reach its
-            full potential. Whether you need innovative strategies, tailored
-            solutions, or a trusted partner to navigate challenges, we’ve got
-            you covered. We’re here to help your business reach its full
-            potential. Whether you need innovative strategies, tailored
-            solutions, or a trusted partner to navigate challenges, we’ve got
-            you covered. We’re here to help your business reach its full
-            potential. Whether you need innovative strategies, tailored
-            solutions, or a trusted partner to navigate challenges, we’ve got
-            you covered. We’re here to help your business reach its full
-            potential. Whether you need innovative strategies, tailored
-            solutions, or a trusted partner to navigate challenges, we’ve got
-            you covered. We’re here to help your business reach its full
-            potential. Whether you need innovative strategies, tailored
-            solutions, or a trusted partner to navigate challenges, we’ve got
-            you covered. We’re here to help your business reach its full
-            potential. Whether you need innovative strategies, tailored
-            solutions, or a trusted partner to navigate challenges, we’ve got
-            you covered. We’re here to help your business reach its full
-            potential. Whether you need innovative strategies, tailored
-            solutions, or a trusted partner to navigate challenges, we’ve got
-            you covered.{" "}
+            {singleBlogPost?.postContent}
           </p>
         </div>
       </div>
@@ -81,38 +64,37 @@ const BlogDetails = () => {
           Other Articles
         </div>
         <div className="w-full hidden md:grid grid-cols-3 gap-10 2xl:gap-20">
-          {blogs.map((blog) => (
+          {blogPosts.slice(0, otherBlogs).map((blog) => (
             <div
               // key={blog.id}
               className="min-w-[250px] md:min-w-[400px] bg-white shadow-lg rounded-lg rounded-t-[30px]"
             >
               <img
-                src={BlogPreview}
-                alt="Blog Preview"
+                src={blog?.fields?.blogImage?.fields?.file?.url}
+                alt="Blog Image Preview"
                 className="w-full h-auto"
               />
               <div className="grid gap-4 p-4">
                 <div>
                   <p className="text-sm md:text-lg text-[#34C759] font-primaryRegular">
-                    Insight
+                    {blog?.fields?.blogSubtitle}
                   </p>
                   <div className="text-[#455A64] font-primarySemibold md:text-xl">
-                    {blog.title}
+                    {blog?.fields?.blogTitle}
                   </div>
                 </div>
                 <div className="font-primaryRegular text-xs md:text-lg text-[#455A64]">
-                  {blog.description}
+                  {blog?.fields?.blogSummary}
                 </div>
                 <div className="flex items-center justify-between">
                   <p className="text-xs md:text-sm font-primaryRegular text-[#455A64]/[60%]">
-                    {blog.date}
+                    {moment(blog?.fields?.createdDate).format(
+                      "MMMM Do, YYYY h:mm A"
+                    )}
                   </p>
                   <div className="relative flex items-center gap-2 md:gap-4 justify-end">
-                    {/* <p className="text-xs md:text-sm text-[#455A64] underline font-primaryRegular">
-                      Read full article
-                    </p> */}
                     <Link
-                      // to={`/blogDetails/${post?.sys?.id}`}
+                      to={`/blogs/blogDetails/${blog?.sys?.id}`}
                       className="text-xs md:text-sm text-[#455A64] underline font-primaryRegular"
                     >
                       Read full article
@@ -132,36 +114,41 @@ const BlogDetails = () => {
         </div>
         {/* Mobile View for Blog */}
         <div className="w-full md:hidden flex items-center gap-10 overflow-x-auto">
-          {blogs.map((blog) => (
+          {blogPosts.slice(0, otherBlogs).map((blog) => (
             <div
-              // key={blog.id}
+              key={blog.sys.id}
               className="min-w-[250px] md:min-w-[400px] bg-white shadow-lg rounded-lg rounded-t-[30px]"
             >
               <img
-                src={BlogPreview}
+                src={blog?.fields?.blogImage?.fields?.file?.url}
                 alt="Blog Preview"
                 className="w-full h-auto rounded-t-lg"
               />
               <div className="grid gap-4 p-4">
                 <div>
                   <p className="text-sm md:text-lg text-[#34C759] font-primaryRegular">
-                    Insight
+                    {blog?.fields?.blogSubtitle}
                   </p>
                   <div className="text-[#455A64] font-primarySemibold md:text-xl">
-                    {blog.title}
+                    {blog?.fields?.blogTitle}
                   </div>
                 </div>
                 <div className="font-primaryRegular text-xs md:text-lg text-[#455A64]">
-                  {blog.description}
+                  {blog?.fields?.blogSummary}
                 </div>
                 <div className="flex items-center justify-between">
                   <p className="text-xs md:text-sm font-primaryRegular text-[#455A64]/[60%]">
-                    {blog.date}
+                    {moment(blog?.fields?.createdDate).format(
+                      "MMMM Do, YYYY h:mm A"
+                    )}
                   </p>
                   <div className="relative flex items-center gap-2 md:gap-4 justify-end">
-                    <p className="text-xs md:text-sm text-[#455A64] underline font-primaryRegular">
+                    <Link
+                      to={`/blogs/blogDetails/${blog?.sys?.id}`}
+                      className="text-xs md:text-sm text-[#455A64] underline font-primaryRegular"
+                    >
                       Read full article
-                    </p>
+                    </Link>
                     {/* <span className="absolute right-3 z-10">
                       <BsArrowRight size={20} color="black" />
                     </span>
@@ -190,9 +177,11 @@ const BlogDetails = () => {
                 Let’s create a strategy that propels your business forward. Book
                 an appointment today
               </p>
-              <button className="w-[162px] md:w-[275px] h-10 md:h-[69px] rounded-xl md:rounded-[35px] bg-[#FFC107] font-buttonText text-xs md:text-base">
-                Book An Appointment
-              </button>
+              <a href="https://forms.gle/ktBqUbi41BzqNM2p7" target="_blank">
+                <button className="w-[162px] md:w-[275px] h-10 md:h-[69px] rounded-xl md:rounded-[35px] bg-[#FFC107] font-buttonText text-xs md:text-base">
+                  Book An Appointment
+                </button>
+              </a>
             </div>
             <img
               src={WaterMark}

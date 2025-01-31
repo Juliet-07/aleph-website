@@ -211,9 +211,11 @@ const Services = () => {
                 Let’s create a strategy that propels your business <br />
                 forward. Book an appointment today
               </p>
-              <button className="w-[162px] md:w-[275px] h-10 md:h-[69px] rounded-xl md:rounded-[35px] bg-[#FFC107] font-primarySemibold text-xs md:text-base">
-                Book An Appointment
-              </button>
+              <a href="https://forms.gle/ktBqUbi41BzqNM2p7" target="_blank">
+                <button className="w-[162px] md:w-[275px] h-10 md:h-[69px] rounded-xl md:rounded-[35px] bg-[#FFC107] font-primarySemibold text-xs md:text-base">
+                  Book An Appointment
+                </button>
+              </a>
             </div>
             <img
               src={WaterMark}

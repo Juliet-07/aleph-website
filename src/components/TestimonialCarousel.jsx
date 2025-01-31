@@ -6,14 +6,17 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import Ernest from "../assets/ernest.svg";
 import Senator from "../assets/senator.svg";
 import Tabs from "../assets/tabs.svg";
+import Serena from "../assets/serena.jpg";
+import Rutherford from "../assets/rutherford.jpeg";
+import Franklin from "../assets/franklin.jpeg";
 
 const testimonials = [
   {
-    name: "Ernest Iweha",
-    title: "Chief Visioner, Krafta Innovation Ltd",
-    image: Ernest, // Assuming `Ernest` is imported or defined elsewhere
+    name: "Franklin Peters",
+    title: "Founder/CEO of BoundlessPay",
+    image: Franklin, // Assuming `Ernest` is imported or defined elsewhere
     feedback:
-      "Effective financial management requires more than just knowledge and skill. Your track record of experience sets you apart.",
+      "Aleph Biz Solutions Ltd is a company I am happy to associate with. Having worked with them since 2021 through the leadership of my Protege King-son Ariweriokuma, I am very confident of their ability to bring success to any organization they work with.",
   },
   {
     name: "Senator Ihenyen",
@@ -30,26 +33,40 @@ const testimonials = [
       "Working with Aleph Biz Solutions Ltd has been an exceptional experience. Their dedication to delivering innovative, scalable, and client-focused solutions is truly commendable.",
   },
   {
-    name: "John Doe",
-    title: "Product Manager, Tech Solutions",
-    image: Ernest, // Assuming `John` is imported or defined elsewhere
+    name: "Rutherford Atayobo",
+    title: "CEO, Manilla Technologies",
+    image: Rutherford, // Assuming `Ernest` is imported or defined elsewhere
     feedback:
-      "The team at Aleph Biz Solutions goes above and beyond to meet client expectations, and their innovation is unmatched.",
+      "Aleph Biz Solutions brings unparalleled value to fintech through innovative solutions and strategic leadership. Their focus on empowering businesses sets them apart as a leader in Africa’s digital financial transformation.",
   },
   {
-    name: "Jane Smith",
-    title: "CEO, Creative Co.",
-    image: Senator, // Assuming `Jane` is imported or defined elsewhere
+    name: "Ernest Iweha",
+    title: "Chief Visioner, Krafta Innovation Ltd",
+    image: Ernest, // Assuming `Ernest` is imported or defined elsewhere
     feedback:
-      "Aleph Biz Solutions combines technical expertise with a focus on client success. Working with them has been a pleasure.",
+      "Effective financial management requires more than just knowledge and skill. Your track record of experience sets you apart.",
   },
   {
-    name: "Michael Johnson",
-    title: "CTO, Future Innovations",
-    image: Tabs, // Assuming `Michael` is imported or defined elsewhere
+    name: "Serena Francis",
+    title: "Executive Director; SuperWoman Org",
+    image: Serena, // Assuming `John` is imported or defined elsewhere
     feedback:
-      "Their ability to translate complex requirements into effective solutions is truly impressive. Highly recommended!",
+      "Aleph Business Solutions is a company that cares about building young people. As a training partner of the company, I am happy to see many young people receive direction and guidance through Aleph.",
   },
+  // {
+  //   name: "Jane Smith",
+  //   title: "CEO, Creative Co.",
+  //   image: Senator, // Assuming `Jane` is imported or defined elsewhere
+  //   feedback:
+  //     "Aleph Biz Solutions combines technical expertise with a focus on client success. Working with them has been a pleasure.",
+  // },
+  // {
+  //   name: "Michael Johnson",
+  //   title: "CTO, Future Innovations",
+  //   image: Tabs, // Assuming `Michael` is imported or defined elsewhere
+  //   feedback:
+  //     "Their ability to translate complex requirements into effective solutions is truly impressive. Highly recommended!",
+  // },
 ];
 
 const borderColors = ["#34C759", "#007AFF", "#FF9500"];

@@ -31,9 +31,11 @@ const FinanceServices = () => {
             <br />
             and Advisory
           </h1>
-          <button className="w-[189px] md:w-[253px] h-[52px] md:h-[69px] bg-[#FFC107] hover:bg-yellow-500 text-black font-primarySemibold rounded-[35px] transition-all duration-300">
-            Get Started With Us
-          </button>
+          <a href="https://forms.gle/ktBqUbi41BzqNM2p7" target="_blank">
+            <button className="w-[189px] md:w-[253px] h-[52px] md:h-[69px] bg-[#FFC107] hover:bg-yellow-500 text-black font-primarySemibold rounded-[35px] transition-all duration-300">
+              Get Started With Us
+            </button>
+          </a>
         </div>
         {/* Box Content */}
         <div className="bg-[#FFFFFF]/[50%] p-2 rounded-[20px]">
@@ -63,7 +65,7 @@ const FinanceServices = () => {
           <div className="text-2xl md:text-4xl 2xl:text-5xl font-primaryBold text-[#565656] text-center md:text-left leading-10 md:leading-[50px] 2xl:leading-[60px]">
             Smart Financial Strategies to <br />
             <font color="#34C759"> Thrive Today </font>
-            and {" "}
+            and{" "}
             <font color="#34C759">
               Scale <br /> Tomorrow
             </font>
@@ -207,9 +209,11 @@ const FinanceServices = () => {
                 success. Book an appointment today to thrive today and scale
                 tomorrow.
               </p>
-              <button className="w-[162px] md:w-[275px] h-10 md:h-[69px] rounded-xl md:rounded-[35px] bg-[#FFC107] font-primarySemibold text-xs md:text-base">
-                Book An Appointment
-              </button>
+              <a href="https://forms.gle/ktBqUbi41BzqNM2p7" target="_blank">
+                <button className="w-[162px] md:w-[275px] h-10 md:h-[69px] rounded-xl md:rounded-[35px] bg-[#FFC107] font-primarySemibold text-xs md:text-base">
+                  Book An Appointment
+                </button>
+              </a>
             </div>
             <img
               src={WaterMark}

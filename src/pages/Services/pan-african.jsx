@@ -28,9 +28,11 @@ const PanAfricanEcosystem = () => {
             <br />
             Development
           </h1>
-          <button className="w-[189px] md:w-[253px] h-[52px] md:h-[69px] bg-[#FFC107] hover:bg-yellow-500 text-black font-primarySemibold rounded-[35px] transition-all duration-300">
-            Get Started With Us
-          </button>
+          <a href="https://forms.gle/ktBqUbi41BzqNM2p7" target="_blank">
+            <button className="w-[189px] md:w-[253px] h-[52px] md:h-[69px] bg-[#FFC107] hover:bg-yellow-500 text-black font-primarySemibold rounded-[35px] transition-all duration-300">
+              Get Started With Us
+            </button>
+          </a>
         </div>
         {/* Box Content */}
         <div className="bg-[#FFFFFF]/[50%] p-2 rounded-[20px]">
@@ -201,9 +203,11 @@ const PanAfricanEcosystem = () => {
                 Let’s create a strategy that propels your business forward. Book
                 an appointment today; Thrive today and scale tomorrow.
               </p>
-              <button className="w-[162px] md:w-[275px] h-10 md:h-[69px] rounded-xl md:rounded-[35px] bg-[#FFC107] font-primarySemibold text-xs md:text-base">
-                Book An Appointment
-              </button>
+              <a href="https://forms.gle/ktBqUbi41BzqNM2p7" target="_blank">
+                <button className="w-[162px] md:w-[275px] h-10 md:h-[69px] rounded-xl md:rounded-[35px] bg-[#FFC107] font-primarySemibold text-xs md:text-base">
+                  Book An Appointment
+                </button>
+              </a>
             </div>
             <img
               src={WaterMark}

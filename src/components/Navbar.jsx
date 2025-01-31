@@ -37,30 +37,50 @@ const Navbar = () => {
 
       <Link
         to="/contact-us"
-        className="w-[97px] h-[35px] rounded-3xl bg-[#34C759] text-white font-primaryMedium flex items-center justify-center text-sm md:hidden"
+        className="w-[97px] h-[35px] rounded-3xl bg-[#34C759] text-white font-primaryMedium flex items-center justify-center text-sm md:hidden hover:bg-green-600 transition duration-200"
       >
         Contact Us
       </Link>
       <nav className=" text-gray-600 font-primaryRegular hidden md:flex">
-        <NavLink to="/" style={activeStyle} className="p-2">
+        <NavLink
+          to="/"
+          style={activeStyle}
+          className="p-2 hover:font-primaryBold hover:bg-green-400 transition duration-20"
+        >
           Home
         </NavLink>
-        <NavLink to="/about-us" style={activeStyle} className="p-2">
+        <NavLink
+          to="/about-us"
+          style={activeStyle}
+          className="p-2 hover:font-primaryBold hover:bg-green-400 transition duration-200"
+        >
           About Us
         </NavLink>
-        <NavLink to="/services" style={activeStyle} className="p-2">
+        <NavLink
+          to="/services"
+          style={activeStyle}
+          className="p-2 hover:font-primaryBold hover:bg-green-400 transition duration-200"
+        >
           Services
         </NavLink>
-        <NavLink to="/blogs" style={activeStyle} className="p-2">
+        <NavLink
+          to="/blogs"
+          style={activeStyle}
+          className="p-2 hover:font-primaryBold hover:bg-green-400 transition duration-200"
+        >
           Blogs
         </NavLink>
-        <NavLink to="/events" style={activeStyle} className="p-2">
+        <NavLink
+          to="/events"
+          style={activeStyle}
+          className="p-2 hover:font-primaryBold hover:bg-green-400 transition duration-200"
+        >
           Events
         </NavLink>
       </nav>
       <Link
         to="/contact-us"
-        className="hidden w-[153px] h-[55px] rounded-3xl bg-[#34C759] text-white font-primarySemibold md:flex items-center justify-center text-lg"
+        className="hidden w-[153px] h-[55px] rounded-3xl bg-[#34C759] text-white font-primarySemibold md:flex items-center justify-center text-lg hover:bg-green-600 transition duration-200"
       >
         Contact Us
       </Link>

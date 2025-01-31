@@ -1,12 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../assets/white-logo.svg";
 import { FaLinkedin, FaFacebook } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa6";
 import { FaRegCopyright, FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { IoLocationSharp } from "react-icons/io5";
+import { AiOutlineMail } from "react-icons/ai";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("entry.Email", email); // Replace with your actual Google Form field ID
+    try {
+      await fetch(
+        "https://docs.google.com/forms/d/e/1FAIpQLSfb-bdG0Z7BNNbxE2y4Ex521qCpMzztvhz7yJL8tgFk4_30Uw/formResponse",
+        {
+          method: "POST",
+          body: formData,
+          mode: "no-cors",
+        }
+      );
+      alert("Submitted Successfully!");
+      setEmail("");
+    } catch (err) {
+      console.error("submission failed", err);
+    }
+  };
+
   return (
     <>
       <div className="hidden w-full h-full md:flex flex-col items-center justify-center p-4 md:px-10 bg-[#455A64]">
@@ -16,17 +40,15 @@ const Footer = () => {
             <p className="font-primarySemibold text-3xl">Newsletter Sign Up</p>
             <p>Lorem ipsum dolor sit</p>
           </div>
-          {/* <div className="flex items-center justify-center min-h-screen bg-blue-900"> */}
           <form
             className="flex w-[426px] h-[75px] items-center bg-white rounded-[30px] shadow-lg overflow-hidden p-3"
-            onSubmit={(e) => {
-              e.preventDefault();
-              // Handle form submission
-              console.log("Form submitted");
-            }}
+            onSubmit={handleSubmit}
           >
             <input
               type="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
               className="flex-grow px-4 text-gray-600 text-sm outline-none"
               required
@@ -48,8 +70,8 @@ const Footer = () => {
               <img src={Logo} alt="SPC Logo" />
             </div>
             <div className="mt-4 text-white font-primaryRegular">
-              Catalysing Rwanda's <br />
-              Economic Transformation
+              Thrive Today; Scale <br />
+              Tomorrow
             </div>
           </div>
           {/* b */}
@@ -107,6 +129,17 @@ const Footer = () => {
                 Aleph Biz Solutions Ltd
               </span>
             </div>
+            <div className="flex items-center gap-2">
+              <a
+                href="https://www.linkedin.com/company/aleph-biz-solutions-ltd/"
+                target="_blank"
+              >
+                <AiOutlineMail size={20} color="white" />
+              </a>
+              <span className="text-white font-primaryRegular text-xl">
+                comms@alephbiz.com
+              </span>
+            </div>
           </div>
         </div>
         {/* 3 */}
@@ -156,9 +189,9 @@ const Footer = () => {
           {/* a */}
           <div className="grid gap-4 text-white font-primaryRegular">
             <div className="font-primarySemibold text-xl">Quick Links</div>
-            <Link>About Us</Link>
+            <Link to="/about-us">About Us</Link>
             <Link>Partners</Link>
-            <Link>Blogs</Link>
+            <Link to="/blogs">Blogs</Link>
           </div>
           {/* b */}
           <div className="grid gap-4 text-white font-primaryRegular">

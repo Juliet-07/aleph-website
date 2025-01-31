@@ -28,8 +28,7 @@ const GeneralRoute = () => {
           <Route path="/about-us" element={<About />} />
           <Route path="/events" element={<Events />} />
           <Route path="/blogs" element={<Blogs />} />
-          {/* <Route path="/blogDetails/:id" element={<BlogDetails />} /> */}
-          <Route path="/blogDetails" element={<BlogDetails />} />
+          <Route path="/blogs/blogDetails/:id" element={<BlogDetails />} />
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/services" element={<Services />} />
           <Route

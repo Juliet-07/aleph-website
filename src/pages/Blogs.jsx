@@ -1,56 +1,35 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import HeroSection from "../components/HeroSection";
 import BG from "../assets/bgThrive.svg";
 import BGMobile from "../assets/bgThriveMobile.svg";
 import WaterMark from "../assets/water-mark.svg";
-import BlogPreview from "../assets/blog-preview.svg";
 import { Link } from "react-router-dom";
+import { createClient } from "contentful";
+import moment from "moment";
 
 const Blogs = () => {
-  const blogs = [
-    {
-      title: "Real Estate in Rwanda",
-      description:
-        "We’re here to help your business reach its full potential. Whether you need innovative strategies, tailored solutions, or a trusted partner to navigate challenges, we’ve got you covered. ",
-      date: "Dec 4, 2024",
-      path: "",
-    },
-    {
-      title: "Real Estate in Rwanda",
-      description:
-        "We’re here to help your business reach its full potential. Whether you need innovative strategies, tailored solutions, or a trusted partner to navigate challenges, we’ve got you covered. ",
-      date: "Dec 4, 2024",
-      path: "",
-    },
-    {
-      title: "Real Estate in Rwanda",
-      description:
-        "We’re here to help your business reach its full potential. Whether you need innovative strategies, tailored solutions, or a trusted partner to navigate challenges, we’ve got you covered. ",
-      date: "Dec 4, 2024",
-      path: "",
-    },
-    {
-      title: "Real Estate in Rwanda",
-      description:
-        "We’re here to help your business reach its full potential. Whether you need innovative strategies, tailored solutions, or a trusted partner to navigate challenges, we’ve got you covered. ",
-      date: "Dec 4, 2024",
-      path: "",
-    },
-    {
-      title: "Real Estate in Rwanda",
-      description:
-        "We’re here to help your business reach its full potential. Whether you need innovative strategies, tailored solutions, or a trusted partner to navigate challenges, we’ve got you covered. ",
-      date: "Dec 4, 2024",
-      path: "",
-    },
-    {
-      title: "Real Estate in Rwanda",
-      description:
-        "We’re here to help your business reach its full potential. Whether you need innovative strategies, tailored solutions, or a trusted partner to navigate challenges, we’ve got you covered. ",
-      date: "Dec 4, 2024",
-      path: "",
-    },
-  ];
+  const spaceID = import.meta.env.VITE_REACT_APP_SPACE_ID;
+  const token = import.meta.env.VITE_REACT_APP_CONTENT_ACCESS_TOKEN;
+  const client = createClient({ space: spaceID, accessToken: token });
+
+  const [blogPosts, setBlogPosts] = useState([]);
+
+  const latestBlog = 1;
+
+  useEffect(() => {
+    const getAllEntries = async () => {
+      try {
+        await client.getEntries().then((entries) => {
+          console.log(entries, "checking entries");
+          setBlogPosts(entries.items);
+        });
+      } catch (error) {
+        console.log("error");
+      }
+    };
+    getAllEntries();
+  }, []);
+
   return (
     <>
       <HeroSection
@@ -61,12 +40,8 @@ const Blogs = () => {
             text: "Insights That Drive Success",
             color: "white",
           },
-          // { text: "Thrive", color: "#FFC107" },
-          // { text: "And", color: "white" },
-          // { text: "Scale", color: "#FFC107" },
         ]}
         buttonLabel="Get Started With Us"
-        // onButtonClick={handleButtonClick}
       />
       {/* Top or Recent article */}
       <div className="relative w-full flex flex-col md:flex-row items-center justify-center bg-white my-10">
@@ -81,93 +56,90 @@ const Blogs = () => {
         ></div>
 
         {/* Content */}
-        <div className="relative flex-1 m-4 md:p-6">
-          {/* Left: Images */}
-          <div className="flex items-center justify-center space-x-0">
-            {/* Replace these divs with your image components */}
-            {/* <img src={WhoWeAre1}/> */}
-            {/* <img src={WhoWeAre2}/> */}
-            <div className="">
-              <img
-                src={BlogPreview}
-                className="md:w-[571px] md:h-[372px]"
-                alt="aleph-biz"
-              />
+        {blogPosts.slice(0, latestBlog).map((blog) => (
+          <>
+            <div className="relative flex-1 m-4 md:p-6">
+              {/* Left: Images */}
+              <div className="flex items-center justify-center space-x-0">
+                <div className="">
+                  <img
+                    src={blog?.fields?.blogImage?.fields?.file?.url}
+                    className="md:w-[571px] md:h-[372px]"
+                    alt="aleph-biz"
+                  />
+                </div>
+              </div>
             </div>
-            {/* <div className="">
-              <img src={WhoWeAre2} alt="aleph-biz" />
-            </div> */}
-          </div>
-        </div>
+            <div className="relative flex-1 p-6 md:space-y-4">
+              {/* Right: Writeup */}
+              <div className="w-full md:block flex flex-col">
+                <h2 className="md:text-xl font-primaryRegular text-[#34C759]">
+                  {blog?.fields?.blogSubtitle}
+                </h2>
+                <div className="font-primaryBold text-xl md:text-3xl text-[#565656]">
+                  {blog?.fields?.blogTitle}
+                </div>
+              </div>
 
-        <div className="relative flex-1 p-6 md:space-y-4">
-          {/* Right: Writeup */}
-          <div className="w-full md:block flex flex-col">
-            <h2 className="md:text-xl font-primaryRegular text-[#34C759]">
-              Insight
-            </h2>
-            <div className="font-primaryBold text-xl md:text-3xl text-[#565656]">
-              Real Estate In Rwanda
+              <p className="text-[#565656] md:text-xl my-2 font-primaryRegular leading-8 md:leading-10">
+                {blog?.fields?.blogSummary}
+              </p>
+              <div className="text-sm text-[#455A64]/60 font-primaryRegular tracking-wide">
+                {moment(blog?.fields?.createdDate).format(
+                  "MMMM Do, YYYY h:mm A"
+                )}{" "}
+                <span>.</span>
+                <span> 5 min read</span>
+              </div>
+              <div className="mt-4 flex items-center md:items-start md:justify-start space-x-4">
+                <Link
+                  to={`/blogs/blogDetails/${blog?.sys?.id}`}
+                  className="w-[162px] md:w-[213px] h-[42px] md:h-[55px] bg-[#34C759] text-white md:text-xl rounded-full flex items-center justify-center font-buttonText"
+                >
+                  Read Full Article
+                </Link>
+              </div>
             </div>
-          </div>
-
-          <p className="text-[#565656] md:text-xl my-2 font-primaryRegular leading-8 md:leading-10">
-            We’re here to help your business reach its full potential. Whether
-            you need innovative strategies, tailored solutions, or a trusted
-            partner to navigate challenges, we’ve got you covered.
-          </p>
-          <div className="text-sm text-[#455A64]/60 font-primaryRegular tracking-wide">
-            Dec 4 2024 <span>.</span>
-            <span> 5 min read</span>
-          </div>
-          <div className="mt-4 flex items-center md:items-start md:justify-start space-x-4">
-            <Link
-              to="/contact-us"
-              className="w-[162px] md:w-[213px] h-[42px] md:h-[55px] bg-[#34C759] text-white md:text-xl rounded-full flex items-center justify-center font-buttonText"
-            >
-              Read Full Article
-            </Link>
-          </div>
-        </div>
+          </>
+        ))}
       </div>
       {/* Latest Articles */}
       <div className="w-full bg-[#E1F7E6] p-4 md:p-10 2xl:p-20">
-        <div className="text-[#565656] text-2xl md:text-5xl font-primaryBold my-4 md:my-10">
+        <div className="text-[#565656] text-2xl md:text-5xl font-primaryBold my-4 md:my-6 2xl:my-10">
           Latest Articles
         </div>
         <div className="w-full hidden md:grid grid-cols-3 gap-10 2xl:gap-20">
-          {blogs.map((blog) => (
+          {blogPosts.map((blog) => (
             <div
-              // key={blog.id}
+              key={blog.sys.id}
               className="min-w-[250px] md:min-w-[400px] bg-white shadow-lg rounded-lg rounded-t-[30px]"
             >
               <img
-                src={BlogPreview}
-                alt="Blog Preview"
+                src={blog?.fields?.blogImage?.fields?.file?.url}
+                alt="Blog Image Preview"
                 className="w-full h-auto"
               />
               <div className="grid gap-4 p-4">
                 <div>
                   <p className="text-sm md:text-lg text-[#34C759] font-primaryRegular">
-                    Insight
+                    {blog?.fields?.blogSubtitle}
                   </p>
                   <div className="text-[#455A64] font-primarySemibold md:text-xl">
-                    {blog.title}
+                    {blog?.fields?.blogTitle}
                   </div>
                 </div>
                 <div className="font-primaryRegular text-xs md:text-lg text-[#455A64]">
-                  {blog.description}
+                  {blog?.fields?.blogSummary}
                 </div>
                 <div className="flex items-center justify-between">
                   <p className="text-xs md:text-sm font-primaryRegular text-[#455A64]/[60%]">
-                    {blog.date}
+                    {moment(blog?.fields?.createdDate).format(
+                      "MMMM Do, YYYY h:mm A"
+                    )}
                   </p>
                   <div className="relative flex items-center gap-2 md:gap-4 justify-end">
-                    {/* <p className="text-xs md:text-sm text-[#455A64] underline font-primaryRegular">
-                      Read full article
-                    </p> */}
                     <Link
-                      // to={`/blogDetails/${post?.sys?.id}`}
+                      to={`/blogs/blogDetails/${blog?.sys?.id}`}
                       className="text-xs md:text-sm text-[#455A64] underline font-primaryRegular"
                     >
                       Read full article
@@ -187,36 +159,41 @@ const Blogs = () => {
         </div>
         {/* Mobile View for Blog */}
         <div className="w-full md:hidden flex items-center gap-10 overflow-x-auto">
-          {blogs.map((blog) => (
+          {blogPosts.map((blog) => (
             <div
-              // key={blog.id}
+              key={blog.sys.id}
               className="min-w-[250px] md:min-w-[400px] bg-white shadow-lg rounded-lg rounded-t-[30px]"
             >
               <img
-                src={BlogPreview}
-                alt="Blog Preview"
+                src={blog?.fields?.blogImage?.fields?.file?.url}
+                alt="Blog Image Preview"
                 className="w-full h-auto rounded-t-lg"
               />
               <div className="grid gap-4 p-4">
                 <div>
                   <p className="text-sm md:text-lg text-[#34C759] font-primaryRegular">
-                    Insight
+                    {blog?.fields?.blogSubtitle}
                   </p>
                   <div className="text-[#455A64] font-primarySemibold md:text-xl">
-                    {blog.title}
+                    {blog?.fields?.blogTitle}
                   </div>
                 </div>
                 <div className="font-primaryRegular text-xs md:text-lg text-[#455A64]">
-                  {blog.description}
+                  {blog?.fields?.blogSummary}
                 </div>
                 <div className="flex items-center justify-between">
                   <p className="text-xs md:text-sm font-primaryRegular text-[#455A64]/[60%]">
-                    {blog.date}
+                    {moment(blog?.fields?.createdDate).format(
+                      "MMMM Do, YYYY h:mm A"
+                    )}
                   </p>
                   <div className="relative flex items-center gap-2 md:gap-4 justify-end">
-                    <p className="text-xs md:text-sm text-[#455A64] underline font-primaryRegular">
+                    <Link
+                      to={`/blogs/blogDetails/${blog?.sys?.id}`}
+                      className="text-xs md:text-sm text-[#455A64] underline font-primaryRegular"
+                    >
                       Read full article
-                    </p>
+                    </Link>
                     {/* <span className="absolute right-3 z-10">
                       <BsArrowRight size={20} color="black" />
                     </span>
@@ -245,9 +222,11 @@ const Blogs = () => {
                 Let’s create a strategy that propels your business forward. Book
                 an appointment today
               </p>
-              <button className="w-[162px] md:w-[275px] h-10 md:h-[69px] rounded-xl md:rounded-[35px] bg-[#FFC107] font-buttonText text-xs md:text-base">
-                Book An Appointment
-              </button>
+              <a href="https://forms.gle/ktBqUbi41BzqNM2p7" target="_blank">
+                <button className="w-[162px] md:w-[275px] h-10 md:h-[69px] rounded-xl md:rounded-[35px] bg-[#FFC107] font-buttonText text-xs md:text-base">
+                  Book An Appointment
+                </button>
+              </a>
             </div>
             <img
               src={WaterMark}
