@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
-import { createClient } from "contentful";
-import moment from "moment";
-import ReactMarkdown from "react-markdown"; // For rendering formatted API content
 import BG from "../assets/bgThrive.svg";
 import BGMobile from "../assets/bgThriveMobile.svg";
 import WaterMark from "../assets/water-mark.svg";
+import BlogPreview from "../assets/blog-preview.svg";
+import { Link, useParams } from "react-router-dom";
+import { createClient } from "contentful";
+import moment from "moment";
 
 const BlogDetails = () => {
   const { id } = useParams();
   const spaceID = import.meta.env.VITE_REACT_APP_SPACE_ID;
   const token = import.meta.env.VITE_REACT_APP_CONTENT_ACCESS_TOKEN;
   const client = createClient({ space: spaceID, accessToken: token });
-
-  const [singleBlogPost, setSingleBlogPost] = useState(null);
+  const [singleBlogPost, setSingleBlogPost] = useState({});
   const [blogPosts, setBlogPosts] = useState([]);
   const otherBlogs = 3;
 
@@ -21,7 +20,7 @@ const BlogDetails = () => {
     const getEntryById = async () => {
       try {
         await client.getEntry(id).then((entries) => {
-          console.log(entries, "checking single entries");
+          console.log(entries, "checking entries");
           setSingleBlogPost(entries.fields);
         });
       } catch (error) {
@@ -41,37 +40,25 @@ const BlogDetails = () => {
     getEntryById();
     getAllEntries();
   }, []);
-
-  if (!singleBlogPost) {
-    return <div className="text-center text-xl mt-10">Loading...</div>;
-  }
-
   return (
     <>
-      <div className="min-h-screen flex flex-col items-center justify-center px-4 md:px-10 lg:px-20 py-10">
-        {/* Blog Image */}
+      {/* Blog Details */}
+      <div className="p-5 md:p-20">
         <img
           src={singleBlogPost?.blogImage?.fields?.file?.url}
           alt="Blog Preview"
-          className="w-full max-w-4xl h-auto rounded-lg shadow-md"
+          className="w-full h-auto"
         />
-        <div className="relative text-sm md:text-lg text-gray-600 -right-20 md:-right-[300px] py-3 font-primaryMedium">
-          {moment(singleBlogPost?.createdDate).format("MMMM Do, YYYY h:mm A")}
-          {/* {singleBlogPost?.createdDate} */}
-        </div>
-        {/* Blog Content */}
-        <div className="w-full max-w-4xl text-center mt-6 space-y-6">
-          <h3 className="text-2xl md:text-4xl font-primaryBold text-left text-[#455A64]">
+        <div className="grid gap-4 my-4 text-[#455A64]">
+          <h3 className="font-primaryBold text-2xl md:text-5xl tracking-wide">
             {singleBlogPost?.blogTitle}
           </h3>
-
-          <div className="text-lg md:text-2xl leading-relaxed text-gray-700 text-left font-primaryRegular">
-            <ReactMarkdown>{singleBlogPost?.postContent}</ReactMarkdown>
-          </div>
+          <p className="text-sm md:text-2xl font-primaryRegular leading-10 md:leading-[4rem] tracking-wide">
+            {singleBlogPost?.postContent}
+          </p>
         </div>
       </div>
-
-      {/* Other Articles Section */}
+      {/* Latest Articles */}
       <div className="w-full bg-[#E1F7E6] p-4 md:p-10 2xl:p-20">
         <div className="text-[#565656] text-2xl md:text-5xl font-primaryBold my-4 md:my-10">
           Other Articles
