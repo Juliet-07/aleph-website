@@ -6,6 +6,7 @@ import ReactMarkdown from "react-markdown"; // For rendering formatted API conte
 import BG from "../assets/bgThrive.svg";
 import BGMobile from "../assets/bgThriveMobile.svg";
 import WaterMark from "../assets/water-mark.svg";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const BlogDetails = () => {
   const { id } = useParams();
@@ -57,7 +58,6 @@ const BlogDetails = () => {
         />
         <div className="relative text-sm md:text-lg text-gray-600 -right-20 md:-right-[300px] py-3 font-primaryMedium">
           {moment(singleBlogPost?.createdDate).format("MMMM Do, YYYY h:mm A")}
-          {/* {singleBlogPost?.createdDate} */}
         </div>
         {/* Blog Content */}
         <div className="w-full max-w-4xl text-center mt-6 space-y-6">
@@ -65,8 +65,10 @@ const BlogDetails = () => {
             {singleBlogPost?.blogTitle}
           </h3>
 
-          <div className="text-lg md:text-2xl leading-relaxed text-gray-700 text-left font-primaryRegular">
-            <ReactMarkdown>{singleBlogPost?.postContent}</ReactMarkdown>
+          <div className="text-lg md:text-2xl leading-relaxed text-gray-700 text-left font-primaryRegular space-y-4">
+            {/* <ReactMarkdown>{singleBlogPost?.postContent}</ReactMarkdown> */}
+            {singleBlogPost?.article &&
+              documentToReactComponents(singleBlogPost.article)}
           </div>
         </div>
       </div>

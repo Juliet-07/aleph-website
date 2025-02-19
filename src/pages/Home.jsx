@@ -19,10 +19,8 @@ import Ramp from "../assets/ramp.svg";
 import Lawyers from "../assets/infusionLawyer.svg";
 
 import EventsBG from "../assets/eventsBG.svg";
-import Events from "../assets/events.png";
 import Vision from "../assets/vision.svg";
 import Mission from "../assets/mission.svg";
-import BlogPreview from "../assets/blog-preview.svg";
 import JConnect from "../assets/j-connect.png";
 import Krafta from "../assets/krafta.png";
 import Manilla from "../assets/manilla.png";
@@ -35,7 +33,15 @@ const Home = () => {
   const spaceID = import.meta.env.VITE_REACT_APP_SPACE_ID;
   const token = import.meta.env.VITE_REACT_APP_CONTENT_ACCESS_TOKEN;
   const client = createClient({ space: spaceID, accessToken: token });
+  const eventSpaceID = import.meta.env.VITE_REACT_APP_EVENT_SPACE_ID;
+  const eventToken = import.meta.env.VITE_REACT_APP_EVENT_CONTENT_ACCESS_TOKEN;
+  const clientEvent = createClient({
+    space: eventSpaceID,
+    accessToken: eventToken,
+  });
+
   const [blogPosts, setBlogPosts] = useState([]);
+  const [events, setEvents] = useState([]);
 
   const services = [
     {
@@ -105,26 +111,9 @@ const Home = () => {
       path: "/services/venture-capital-services",
     },
   ];
-  const events = [
-    {
-      name: "Aleph Biz Business Summit",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Tortor varius quis cursus ullamcorper scelerisque. Fames gravida ultricies po.",
-      registerPath: "",
-      detailsPath: "",
-    },
-    {
-      name: "Aleph Biz Business Summit",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Tortor varius quis cursus ullamcorper scelerisque. Fames gravida ultricies po.",
-      registerPath: "",
-      detailsPath: "",
-    },
-  ];
 
   const latestBlog = 3;
-
-  const borderColors = ["#FFC107", "#21295C", "#34C759"];
+  const latestEvent = 2;
 
   useEffect(() => {
     const getAllEntries = async () => {
@@ -137,7 +126,18 @@ const Home = () => {
         console.log("error");
       }
     };
+    const getAllEventsEntries = async () => {
+      try {
+        await clientEvent.getEntries().then((entries) => {
+          console.log(entries, "checking entries");
+          setEvents(entries.items);
+        });
+      } catch (error) {
+        console.log("error");
+      }
+    };
     getAllEntries();
+    getAllEventsEntries();
   }, []);
 
   return (
@@ -516,7 +516,7 @@ const Home = () => {
       {/* Testimonials */}
       <TestimonialsCarousel />
       {/* Blogs */}
-      {/* <div className="w-full flex flex-col items-center justify-center">
+      <div className="w-full flex flex-col items-center justify-center">
         <div className="flex items-center justify-center gap-10 my-4 md:my-10">
           <div className="flex flex-col items-center justify-center md:items-start md:justify-start my-4">
             <h2 className="text-xl md:text-3xl font-primaryRegular text-[#34C759]">
@@ -533,12 +533,12 @@ const Home = () => {
             View All Articles
           </Link>
         </div>
-        Blog Carousel
+        {/* Blog Carousel */}
         <div className="w-full flex items-center gap-10 2xl:gap-20 overflow-x-auto mb-4 p-4">
           {blogPosts.slice(0, latestBlog).map((blog) => (
             <div
               key={blog.sys.id}
-              className="min-w-[250px] md:min-w-[400px] bg-white shadow-lg rounded-lg"
+              className="min-w-[250px] md:w-[400px] bg-white shadow-lg rounded-lg"
             >
               <img
                 src={blog?.fields?.blogImage?.fields?.file?.url}
@@ -583,14 +583,13 @@ const Home = () => {
             </div>
           ))}
         </div>
-
         <Link
           to="/blogs"
           className="md:hidden w-[153px] h-[51px] border border-[#565656] rounded-full flex items-center justify-center text-[#565656] font-buttonText mb-4"
         >
           View All Articles
         </Link>
-      </div> */}
+      </div>
       {/* Events */}
       <div
         className="w-full h-auto relative bg-cover md:px-10 2xl:px-20 md:flex items-center"
@@ -617,40 +616,48 @@ const Home = () => {
             </Link>
           </div>
           <div className="grid gap-4">
-            {events.map((event) => (
+            {events.slice(0, latestEvent).map((event) => (
               <div className="w-full bg-white rounded-lg p-4">
                 <div className="flex items-center justify-between gap-14 md:gap-10">
                   <div className="flex items-center space-y-4 gap-4">
                     <img
-                      src={Events}
+                      src={event?.fields?.eventImage?.fields?.file?.url}
                       className="w-[97px] md:w-[266px] md:h-[206px] h-[95px]"
                     />
                     <div className="grid">
                       <h2 className="text-xs md:text-3xl font-primarySemibold text-[#455A64]">
-                        {event.name}
+                        {event?.fields?.eventTitle}
                       </h2>
                       <p className="w-[190px] md:w-[572px] text-[8px] md:text-lg text-[#565656] font-primaryMedium my-2 md:my-3">
-                        {event.description}
+                        {event?.fields?.eventDesc}
                       </p>
                       <div className="flex gap-4">
                         <div className="bg-[#34C759] w-[65px] md:w-[156px] h-[25px] md:h-[60px] rounded-full text-white font-primaryMedium flex items-center justify-center text-[8px] md:text-base">
-                          Register Now
+                          <a
+                            href={`${event?.fields?.registrationLink}`}
+                            target="_blank"
+                          >
+                            Register Now
+                          </a>
                         </div>
-                        <div className="w-[73px] md:w-[177px] h-[25px] md:h-[60px] rounded-full border border-[#455A64] text-[#455A64] font-primaryMedium flex items-center justify-center text-[8px] md:text-base">
+                        <Link
+                          to={`/events/eventDetails/${event?.sys?.id}`}
+                          className="w-[73px] md:w-[177px] h-[25px] md:h-[60px] rounded-full border border-[#455A64] text-[#455A64] font-primaryMedium flex items-center justify-center text-[8px] md:text-base"
+                        >
                           See More Details
-                        </div>
+                        </Link>
                       </div>
                     </div>
                   </div>
                   <div className="w-[60px] md:w-[129px] h-[47px] md:h-[102px] mx-4 bg-[#FFE784]/[13%] border border-[#21295C]/[100%] rounded-xl flex flex-col items-center justify-center">
                     <p className="text-[#455A64] text-[6px] md:text-sm font-primaryRegular">
-                      Jan
+                      {event?.fields?.eventMonth}
                     </p>
                     <p className="text-[#455A64] md:text-3xl font-primarySemibold">
-                      20
+                      {event?.fields?.eventDay}
                     </p>
                     <p className="text-[#455A64] text-[6px] md:text-sm font-primaryRegular">
-                      2025
+                      {event?.fields?.eventYear}
                     </p>
                   </div>
                 </div>

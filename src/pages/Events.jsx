@@ -1,35 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import EventBG from "../assets/events-bg.svg";
 import EventPreview from "../assets/events.png";
 import UpNext from "../assets/upNext.svg";
 import WaterMark from "../assets/water-mark.svg";
 import { Link } from "react-router-dom";
 import { BsCalendar2Date } from "react-icons/bs";
+import { createClient } from "contentful";
+import moment from "moment";
 
 const Events = () => {
-  const events = [
-    {
-      name: "Aleph Biz Business Summit",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Tortor varius quis cursus ullamcorper scelerisque. Fames gravida ultricies po.",
-      registerPath: "",
-      detailsPath: "",
-    },
-    {
-      name: "Aleph Biz Business Summit",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Tortor varius quis cursus ullamcorper scelerisque. Fames gravida ultricies po.",
-      registerPath: "",
-      detailsPath: "",
-    },
-    {
-      name: "Aleph Biz Business Summit",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Tortor varius quis cursus ullamcorper scelerisque. Fames gravida ultricies po.",
-      registerPath: "",
-      detailsPath: "",
-    },
-  ];
+  const spaceID = import.meta.env.VITE_REACT_APP_EVENT_SPACE_ID;
+  const token = import.meta.env.VITE_REACT_APP_EVENT_CONTENT_ACCESS_TOKEN;
+  const client = createClient({ space: spaceID, accessToken: token });
+
+  const [events, setEvents] = useState([]);
+
+  const latestEvent = 1;
+
+  useEffect(() => {
+    const getAllEntries = async () => {
+      try {
+        await client.getEntries().then((entries) => {
+          console.log(entries, "checking entries");
+          setEvents(entries.items);
+        });
+      } catch (error) {
+        console.log("error");
+      }
+    };
+    getAllEntries();
+  }, []);
+
   return (
     <>
       <div
@@ -59,63 +60,66 @@ const Events = () => {
         ></div>
 
         {/* Content */}
-        <div className="relative flex-1 m-4 md:p-6">
-          {/* Left: Images */}
+        {events.slice(0, latestEvent).map((event) => (
+          <>
+            <div className="relative flex-1 m-4 md:p-6">
+              {/* Left: Images */}
 
-          <div className="flex items-center justify-center space-x-0">
-            <div className="">
-              <div className="text-[#565656] text-2xl md:text-5xl font-primaryBold py-5">
-                Up Next
+              <div className="flex items-center justify-center space-x-0">
+                <div className="">
+                  <div className="text-[#565656] text-2xl md:text-5xl font-primaryBold py-5">
+                    Up Next
+                  </div>
+                  <img
+                    src={event?.fields?.eventImage?.fields?.file?.url}
+                    className="md:w-[571px] md:h-[372px]"
+                    alt="aleph-biz"
+                  />
+                </div>
               </div>
-              <img
-                src={UpNext}
-                className="md:w-[571px] md:h-[372px]"
-                alt="aleph-biz"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="relative flex-1 p-6 md:space-y-4 md:mx-4">
-          {/* Right: Writeup */}
-          <div className="w-full md:block flex flex-col">
-            <div className="flex items-center justify-between my-4">
-              <p></p>
-              <button className="w-[170px] md:w-[248px] h-10 md:h-[60px] bg-[#21295C] font-buttonText rounded-xl text-white flex items-center justify-center gap-3 text-sm md:text-lg p-2">
-                <span>
-                  <BsCalendar2Date size={20} />
-                </span>
-                20th January 2025
-              </button>
             </div>
 
-            <div className="font-primaryBold text-2xl md:text-5xl text-[#455A64]">
-              Aleph Biz Business Week
+            <div className="relative flex-1 p-6 md:space-y-4 md:mx-4">
+              {/* Right: Writeup */}
+              <div className="w-full md:block flex flex-col">
+                <div className="flex items-center justify-between my-4">
+                  <p></p>
+                  <button className="w-[180px] md:w-[248px] h-10 md:h-[60px] bg-[#21295C] font-buttonText rounded-xl text-white flex items-center justify-center gap-3 text-sm md:text-lg p-2">
+                    <span>
+                      <BsCalendar2Date size={20} />
+                    </span>
+                    {moment(event?.fields?.createdDate).format("MMMM Do, YYYY")}
+                  </button>
+                </div>
+
+                <div className="font-primaryBold text-2xl md:text-5xl text-[#455A64]">
+                  {event?.fields?.eventTitle}
+                </div>
+              </div>
+
+              <p className="text-[#565656] md:text-xl my-2 font-primaryRegular leading-8 md:leading-10 text-justify">
+                {event?.fields?.eventDesc}
+              </p>
+
+              <div className="mt-4 flex items-center md:items-start md:justify-start space-x-4">
+                <div className="w-[161px] md:w-[174px] h-[41px] md:h-[67px] bg-[#34C759] text-white md:text-xl rounded-full flex items-center justify-center font-buttonText">
+                  <a
+                    href={`${event?.fields?.registrationLink}`}
+                    target="_blank"
+                  >
+                    Register Now
+                  </a>
+                </div>
+                <Link
+                  to={`/events/eventDetails/${event?.sys?.id}`}
+                  className="w-[161px] md:w-[198px] h-[41px] md:h-[67px] text-[#565656] border border-[#565656] md:text-xl rounded-full flex items-center justify-center font-buttonText"
+                >
+                  See More Details
+                </Link>
+              </div>
             </div>
-          </div>
-
-          <p className="text-[#565656] md:text-xl my-2 font-primaryRegular leading-8 md:leading-10 text-justify">
-            Lorem ipsum dolor sit amet consectetur. Tortor varius quis cursus
-            ullamcorper scelerisque. Fames gravida ultricies po.Lorem ipsum
-            dolor sit amet consectetur. Tortor varius quis cursus ullamcorper
-            scelerisque. Fames gravida ultricies po.
-          </p>
-
-          <div className="mt-4 flex items-center md:items-start md:justify-start space-x-4">
-            <Link
-              to="/contact-us"
-              className="w-[161px] md:w-[174px] h-[41px] md:h-[67px] bg-[#34C759] text-white md:text-xl rounded-full flex items-center justify-center font-buttonText"
-            >
-              Register Now
-            </Link>
-            <Link
-              to="/about-us"
-              className="w-[161px] md:w-[198px] h-[41px] md:h-[67px] text-[#565656] border border-[#565656] md:text-xl rounded-full flex items-center justify-center font-buttonText"
-            >
-              See More Details
-            </Link>
-          </div>
-        </div>
+          </>
+        ))}
       </div>
       {/* Upcoming Events */}
       <div className="w-full bg-[#E1F7E6] p-4 md:p-10 2xl:p-20 my-10">
@@ -128,35 +132,43 @@ const Events = () => {
               <div className="flex items-center justify-between gap-14 md:gap-10">
                 <div className="flex items-center space-y-4 gap-4">
                   <img
-                    src={EventPreview}
+                    src={event?.fields?.eventImage?.fields?.file?.url}
                     className="w-[97px] md:w-[266px] md:h-[206px] h-[95px]"
                   />
                   <div className="grid">
                     <h2 className="text-xs md:text-3xl font-primarySemibold text-[#455A64]">
-                      {event.name}
+                      {event?.fields?.eventTitle}
                     </h2>
                     <p className="w-[190px] md:w-[572px] text-[8px] md:text-lg text-[#565656] font-primaryMedium my-2 md:my-3">
-                      {event.description}
+                      {event?.fields?.eventDesc}
                     </p>
                     <div className="flex gap-4">
                       <div className="bg-[#34C759] w-[65px] md:w-[156px] h-[25px] md:h-[60px] rounded-full text-white font-primaryMedium flex items-center justify-center text-[8px] md:text-base">
-                        Register Now
+                        <a
+                          href={`${event?.fields?.registrationLink}`}
+                          target="_blank"
+                        >
+                          Register Now
+                        </a>
                       </div>
-                      <div className="w-[73px] md:w-[177px] h-[25px] md:h-[60px] rounded-full border border-[#455A64] text-[#455A64] font-primaryMedium flex items-center justify-center text-[8px] md:text-base">
+                      <Link
+                        to={`/events/eventDetails/${event?.sys?.id}`}
+                        className="w-[73px] md:w-[177px] h-[25px] md:h-[60px] rounded-full border border-[#455A64] text-[#455A64] font-primaryMedium flex items-center justify-center text-[8px] md:text-base"
+                      >
                         See More Details
-                      </div>
+                      </Link>
                     </div>
                   </div>
                 </div>
                 <div className="w-[60px] md:w-[129px] h-[47px] md:h-[102px] mx-4 bg-[#FFE784]/[13%] border border-[#21295C]/[100%] rounded-xl flex flex-col items-center justify-center">
                   <p className="text-[#455A64] text-[6px] md:text-sm font-primaryRegular">
-                    Jan
+                    {event?.fields?.eventMonth}
                   </p>
                   <p className="text-[#455A64] md:text-3xl font-primarySemibold">
-                    20
+                    {event?.fields?.eventDay}
                   </p>
                   <p className="text-[#455A64] text-[6px] md:text-sm font-primaryRegular">
-                    2025
+                    {event?.fields?.eventYear}
                   </p>
                 </div>
               </div>

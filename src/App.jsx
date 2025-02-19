@@ -18,6 +18,7 @@ import VentureServices from "./pages/Services/venture";
 import CustomTechServices from "./pages/Services/customTech";
 import ResearchServices from "./pages/Services/research";
 import BrandingServices from "./pages/Services/branding";
+import EventDetails from "./pages/EventDetails";
 
 const GeneralRoute = () => {
   return (
@@ -27,6 +28,7 @@ const GeneralRoute = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<About />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/events/eventDetails/:id" element={<EventDetails />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blogs/blogDetails/:id" element={<BlogDetails />} />
           <Route path="/contact-us" element={<Contact />} />
